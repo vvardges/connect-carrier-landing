@@ -1,26 +1,8 @@
-import axios from "axios";
 import React from "react";
 import OfferList from "./OfferList";
 import { Price } from "@/types/price";
 
 const PricingBox = ({ product }: { product: Price }) => {
-  // POST request
-  const handleSubscription = async (e: any) => {
-    e.preventDefault();
-    const { data } = await axios.post(
-      "/api/payment",
-      {
-        priceId: product.id,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-    );
-    window.location.assign(data);
-  };
-
   return (
     <div className="w-full px-4 md:w-1/2 lg:w-1/3">
       <div
@@ -60,7 +42,9 @@ const PricingBox = ({ product }: { product: Price }) => {
         </div>
         <div className="w-full">
           <button
-            onClick={handleSubscription}
+            onClick={() => {
+              console.log("fix me later");
+            }}
             className="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition duration-300 hover:bg-primary/90"
           >
             Purchase Now
