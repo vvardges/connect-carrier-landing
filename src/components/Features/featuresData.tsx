@@ -63,7 +63,7 @@ const featuresData: Feature[] = [
     btnLink: "/#",
   },
   {
-    id: 4,
+    id: 3,
     icon: (
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
         fill="white"  viewBox="-10 -10 170 170">
