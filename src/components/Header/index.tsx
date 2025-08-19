@@ -25,6 +25,7 @@ const Header = () => {
       setSticky(false);
     }
   };
+  
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
   });
@@ -52,12 +53,10 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4">
+            <div className="w-60 max-w-full px-0">
               <Link
                 href="/"
-                className={`navbar-logo block w-full ${
-                  sticky ? "py-2" : "py-5"
-                } `}
+                className={`navbar-logo block`}
               >
                 {pathUrl !== "/" ? (
                   <>
@@ -66,31 +65,31 @@ const Header = () => {
                       alt="logo"
                       width={240}
                       height={30}
-                      className="header-logo w-full dark:hidden"
+                      className="header-logo w-full dark:hidden max-w-[140px]"
                     />
                     <Image
                       src={`/images/logo/logo.png`}
                       alt="logo"
                       width={240}
                       height={30}
-                      className="header-logo hidden w-full dark:block"
+                      className="header-logo hidden dark:block max-w-[140px]"
                     />
                   </>
                 ) : (
                   <>
                     <Image
-                      src={"/images/logo/logo.png"}
-                      alt="logo"
-                      width={140}
+                      src={"/images/logo/logo_black.png"}
+                      alt="logo_black"
+                      width={180}
                       height={30}
-                      className="header-logo w-full dark:hidden"
+                      className="header-logo dark:hidden max-w-[140px]"
                     />
                     <Image
                       src={`/images/logo/logo.png`}
                       alt="logo"
                       width={140}
                       height={30}
-                      className="header-logo hidden w-full dark:block"
+                      className="header-logo hidden dark:block max-w-[140px]"
                     />
                   </>
                 )}
@@ -147,7 +146,7 @@ const Header = () => {
                           {pathUrl !== "/" ? (
                             <Link
                               onClick={navbarToggleHandler}
-                              scroll={false}
+                              scroll={true}
                               href={menuItem.path}
                               className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6 ${
                                 pathUrl === menuItem?.path && "text-primary"
@@ -157,16 +156,14 @@ const Header = () => {
                             </Link>
                           ) : (
                             <Link
-                              scroll={false}
+                              scroll={true}
                               href={menuItem.path}
-                              className={`ud-menu-scroll flex py-2 text-base lg:inline-flex lg:px-0 lg:py-6 ${
-                                sticky
-                                  ? "text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary"
-                                  : "text-body-color dark:text-white lg:text-white"
-                              } ${
-                                pathUrl === menuItem?.path &&
-                                sticky &&
-                                "!text-primary"
+                              className={`ud-menu-scroll flex py-2 text-base lg:inline-flex lg:px-0 lg:py-6
+                              ${pathUrl === menuItem.path
+                                ? "text-primary"
+                                : sticky
+                                ? "text-dark dark:text-white group-hover:text-primary"
+                                : "text-body-color dark:text-white lg:text-white group-hover:text-primary"
                               }`}
                             >
                               {menuItem.title}
@@ -226,7 +223,6 @@ const Header = () => {
                               </span>
                             </button>
                           )}
-
                           <div
                             className={`submenu relative left-0 top-full w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
                               openIndex === index ? "!-left-[25px]" : "hidden"

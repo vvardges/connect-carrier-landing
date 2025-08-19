@@ -16,7 +16,7 @@ const About = () => {
                   Your Partner in Transport
                 </h2>
                 <p className="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6">
-                  SIS TRANS company provides services in the field of land, sea, and air transport.
+                  ConnectCarrier company provides services in the field of land, sea, and air transport.
                   <br /> <br />
                   Thanks to many years of experience in the transport industry,
                   supported by a team of experienced drivers and trained logistics staff,
@@ -28,13 +28,6 @@ const About = () => {
                   With us, you can be sure that your transport needs will be met
                   with the utmost care and professionalism.
                 </p>
-
-                <Link
-                  href="#"
-                  className="inline-flex items-center justify-center rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white duration-300 hover:bg-primary/90"
-                >
-                  Know More
-                </Link>
               </div>
             </div>
 
@@ -45,7 +38,7 @@ const About = () => {
                     className={`relative mb-4 sm:mb-8 sm:h-[400px] md:h-[540px] lg:h-[400px] xl:h-[500px] `}
                   >
                     <Image
-                      src="/images/about.jpg"
+                      src="/images/ConnectCarrier.jpg"
                       alt="about image"
                       fill
                       className="h-full w-full object-cover object-center"
