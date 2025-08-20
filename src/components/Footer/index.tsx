@@ -8,10 +8,10 @@ const Footer = () => {
       data-wow-delay=".15s"
     >
       <div className="container">
-        <div className="mb-10 w-full">
+        <div className="mb-10 w-full flex flex-col items-center">
           <Link href="/" className="mb-2 inline-block max-w-[160px]">
             <Image
-              src="/images/logo/logo.png"
+              src="/images/logo/logo-white.png"
               alt="logo"
               width={140}
               height={30}
@@ -20,15 +20,15 @@ const Footer = () => {
           </Link>
 
           <div className="w-full flex">
-            <div className="mb-2 w-full flex gap-12">
-              <h4 className="text-lg font-semibold whitespace-nowrap">
+            <div className="mb-2 w-full flex gap-12 justify-center">
+              <h4 className="text-lg text-[rgb(206,212,218)] font-semibold whitespace-nowrap">
                 About Us
               </h4>
-              <ul className="flex w-full gap-x-10 flex-wrap">
+              <ul className="flex gap-x-10 flex-wrap">
                 <li>
                   <Link
                     href="#"
-                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
+                    className="mb-3 inline-block text-base text-gray-7"
                   >
                     Home
                   </Link>
@@ -36,7 +36,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="#"
-                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
+                    className="mb-3 inline-block text-base text-gray-7"
                   >
                     About
                   </Link>
@@ -44,7 +44,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/register"
-                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
+                    className="mb-3 inline-block text-base text-gray-7"
                   >
                     How To Register
                   </Link>

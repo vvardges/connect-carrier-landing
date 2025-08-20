@@ -68,7 +68,7 @@ const Header = () => {
                       className="header-logo w-full dark:hidden max-w-[140px]"
                     />
                     <Image
-                      src={`/images/logo/logo.png`}
+                      src={`/images/logo/logo-white.png`}
                       alt="logo"
                       width={240}
                       height={30}
@@ -78,14 +78,14 @@ const Header = () => {
                 ) : (
                   <>
                     <Image
-                      src={"/images/logo/logo_black.png"}
+                      src={`${sticky ? "/images/logo/logo.png" : "/images/logo/logo-white.png"}`}
                       alt="logo_black"
-                      width={180}
+                      width={140}
                       height={30}
                       className="header-logo dark:hidden max-w-[140px]"
                     />
                     <Image
-                      src={`/images/logo/logo.png`}
+                      src={`/images/logo/logo-white.png`}
                       alt="logo"
                       width={140}
                       height={30}
@@ -148,10 +148,7 @@ const Header = () => {
                               onClick={navbarToggleHandler}
                               scroll={true}
                               href={menuItem.path}
-                              className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6 ${
-                                pathUrl === menuItem?.path && "text-primary"
-                              }`}
-                            >
+                              className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6`}>
                               {menuItem.title}
                             </Link>
                           ) : (
@@ -160,10 +157,10 @@ const Header = () => {
                               href={menuItem.path}
                               className={`ud-menu-scroll flex py-2 text-base lg:inline-flex lg:px-0 lg:py-6
                               ${pathUrl === menuItem.path
-                                ? "text-primary"
+                                ? "dark:text-white group-hover:text-primary"
                                 : sticky
                                 ? "text-dark dark:text-white group-hover:text-primary"
-                                : "text-body-color dark:text-white lg:text-white group-hover:text-primary"
+                                : "group-hover:text-primary"
                               }`}
                             >
                               {menuItem.title}

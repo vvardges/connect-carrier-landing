@@ -6,8 +6,8 @@ const Faq = () => {
     <section className="relative z-20 overflow-hidden bg-white pb-8 pt-20 dark:bg-dark lg:pb-[30px] lg:pt-[200px]">
       <div className="container">
         <SectionTitle
-          title="Any Questions? Answered"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="How to Register and Get Started"
+          paragraph="Follow these steps to create your account and start using our platform."
           width="640px"
           center
         />
@@ -16,36 +16,97 @@ const Faq = () => {
           <div className="w-full px-4 lg:w-1/2">
             <SingleFaq
               id={1}
-              question="How to use TailGrids?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Create Your Account"
+              answer={
+                <div>
+                  <p>Click the Register button on the login page. Fill in the required fields:</p>
+                  <ul className="list-disc list-inside mt-2 space-y-1">
+                    <li>Email</li>
+                    <li>Password (minimum 6 characters)</li>
+                    <li>Full Name</li>
+                    <li>Company Name</li>
+                    <li>VAT Number</li>
+                  </ul>
+                  <p className="mt-2">Then click <strong>Create Account</strong>.</p>
+                </div>
+              }
             />
             <SingleFaq
               id={2}
-              question="How to download icons from LineIcons?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Verify Your Email"
+              answer={
+                <div>
+                  <p>Check your inbox for an email titled <strong>“Your verification code”</strong> and enter the 8-digit OTP:</p>
+                  <ul className="list-disc list-inside mt-2 space-y-1">
+                    <li>If you don’t see the email, check your Spam folder</li>
+                    <li>Or click <strong>Resend Code</strong></li>
+                  </ul>
+                </div>
+              }
             />
             <SingleFaq
               id={3}
-              question="Is GrayGrids part of UIdeck?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Complete Onboarding"
+              answer={
+                <div>
+                  <p>After verifying your email, you’ll be redirected to the Onboarding page. Complete all sections:</p>
+                  <ul className="list-disc list-inside mt-2 space-y-1">
+                    <li>Company Details</li>
+                    <li>Address Line 1 / Line 2 (optional)</li>
+                    <li>Country, Town/City, State, Post Code</li>
+                    <li>Country Code (e.g., +44, +49) & Phone Number</li>
+                    <li>Domiciles (countries where your company operates)</li>
+                    <li>Operating License (upload PDF, JPG, PNG)</li>
+                    <li>Insurance Documents (upload PDF, JPG, PNG)</li>
+                    <li>Payment Info (Account Holder, SWIFT/BIC, IBAN, Account Type)</li>
+                    <li>Equipment Inventory (tractors, vans, trailers, etc.)</li>
+                  </ul>
+                </div>
+              }
             />
           </div>
 
           <div className="w-full px-4 lg:w-1/2">
             <SingleFaq
               id={4}
-              question="Can I use this template for commercial project?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Submit for Review"
+              answer={
+                <div>
+                  <p>When all required sections are complete:</p>
+                  <ul className="list-disc list-inside mt-2 space-y-1">
+                    <li>Click <strong>Submit for Review</strong></li>
+                    <li>Your application status changes to <em>Pending Review</em></li>
+                    <li>Our administrators will check your details & documents</li>
+                  </ul>
+                </div>
+              }
             />
             <SingleFaq
               id={5}
-              question="Do you have plan to releasing Play Pro?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Fix Issues (if needed)"
+              answer={
+                <div>
+                  <p>If something is missing or incorrect:</p>
+                  <ul className="list-disc list-inside mt-2 space-y-1">
+                    <li>Highlighted fields show notes (e.g., “Invalid IBAN”, “Insurance expired”)</li>
+                    <li>Update only the incorrect fields and re-submit</li>
+                    <li>Repeat until everything is correct</li>
+                  </ul>
+                </div>
+              }
             />
             <SingleFaq
               id={6}
-              question="Where and how to host this template?"
-              answer="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              question="Get Approved & Start Using the Platform"
+              answer={
+                <div>
+                  <p>Once approved, you’ll receive a confirmation email:</p>
+                  <ul className="list-disc list-inside mt-2 space-y-1">
+                    <li>Log in with your email and password</li>
+                    <li>Access the platform and start using all features</li>
+                  </ul>
+                </div>
+              }
             />
           </div>
         </div>
