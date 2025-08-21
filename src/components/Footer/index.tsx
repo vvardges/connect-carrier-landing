@@ -4,11 +4,11 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer
-      className="wow fadeInUp relative z-10 bg-[#090E34] pt-20 lg:pt-[100px]"
+      className="wow fadeInUp relative z-10 bg-[#090E34] pt-20 lg:pt-[20px]"
       data-wow-delay=".15s"
     >
       <div className="container">
-        <div className="mb-10 w-full flex flex-col items-center">
+        <div className="mb-10 w-full flex gap-y-10 flex-col items-center">
           <Link href="/" className="mb-2 inline-block max-w-[160px]">
             <Image
               src="/images/logo/logo-white.png"
@@ -21,9 +21,6 @@ const Footer = () => {
 
           <div className="w-full flex">
             <div className="mb-2 w-full flex gap-12 justify-center">
-              <h4 className="text-lg text-[rgb(206,212,218)] font-semibold whitespace-nowrap">
-                About Us
-              </h4>
               <ul className="flex gap-x-10 flex-wrap">
                 <li>
                   <Link

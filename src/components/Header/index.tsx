@@ -142,7 +142,7 @@ const Header = () => {
                   <ul className="block lg:ml-8 lg:flex lg:gap-x-8 xl:ml-14 xl:gap-x-12">
                     {menuData.map((menuItem, index) =>
                       menuItem.path ? (
-                        <li key={index} className="group relative">
+                        <li key={index} className="group relative flex">
                           {pathUrl !== "/" ? (
                             <Link
                               onClick={navbarToggleHandler}
@@ -155,12 +155,12 @@ const Header = () => {
                             <Link
                               scroll={true}
                               href={menuItem.path}
-                              className={`ud-menu-scroll flex py-2 text-base lg:inline-flex lg:px-0 lg:py-6
+                              className={`ud-menu-scroll flex py-2 text-base transition-all duration-200 lg:inline-flex lg:px-0 lg:py-6
                               ${pathUrl === menuItem.path
-                                ? "dark:text-white group-hover:text-primary"
+                                ? "dark:text-white group-hover:scale-110"
                                 : sticky
-                                ? "text-dark dark:text-white group-hover:text-primary"
-                                : "group-hover:text-primary"
+                                ? "text-dark dark:text-white group-hover:scale-110"
+                                : "group-hover:scale-110"
                               }`}
                             >
                               {menuItem.title}
@@ -275,19 +275,13 @@ const Header = () => {
                 <>
                   <Link
                     href="https://www.connectcarrier.pl/auth/login"
-                    className={`px-7 py-3 text-base font-medium hover:opacity-70 ${
-                      sticky ? "text-dark dark:text-white" : "text-white"
-                    }`}
+                    className={`px-7 py-3 text-base font-medium hover:opacity-70 text-dark dark:text-white`}
                   >
                     Sign In
                   </Link>
                   <Link
                     href="https://www.connectcarrier.pl/auth/register"
-                    className={`rounded-lg px-6 py-3 text-base font-medium text-white duration-300 ease-in-out ${
-                      sticky
-                        ? "bg-primary hover:bg-primary/90 dark:bg-white/10 dark:hover:bg-white/20"
-                        : "bg-white/10 hover:bg-white/20"
-                    }`}
+                    className={`rounded-lg px-6 py-3 text-base font-medium text-white duration-300 ease-in-out bg-primary hover:bg-primary/90 dark:bg-white/10 dark:hover:bg-white/20`}
                   >
                     Sign Up
                   </Link>

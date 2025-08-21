@@ -1,4 +1,40 @@
+"use client";
+
+import React,{ useRef } from "react";
+
 const Contact = () => {
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+
+   const data = {
+      fullName: (form.elements.namedItem("fullName") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+      if (res.ok) alert("Ուղարկվեց հաջողությամբ");
+      else alert(" Սխալ " + result.message);
+    } catch (err) {
+      console.error(err);
+      alert("Սխալ");
+    } finally {
+      form.reset();
+    }
+  };
+
   return (
     <section id="contact" className="relative py-20 md:py-[120px]">
       <div className="absolute left-0 top-0 -z-[1] h-full w-full dark:bg-dark"></div>
@@ -72,7 +108,7 @@ const Contact = () => {
               <h3 className="mb-8 text-2xl font-semibold text-dark dark:text-white md:text-[28px] md:leading-[1.42]">
                 Send us a Message
               </h3>
-              <form>
+              <form ref={formRef} onSubmit={handleSubmit}>
                 <div className="mb-[22px]">
                   <label
                     htmlFor="fullName"
@@ -103,7 +139,7 @@ const Contact = () => {
                 </div>
                 <div className="mb-[22px]">
                   <label
-                    htmlFor="phone"
+                    htmlFor="tel"
                     className="mb-4 block text-sm text-body-color dark:text-dark-6"
                   >
                     Phone*
@@ -131,7 +167,7 @@ const Contact = () => {
                 </div>
                 <div className="mb-0">
                   <button
-                    type="button"
+                    type="submit"
                     className="inline-flex items-center justify-center rounded-md bg-primary px-10 py-3 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-primary/90"
                   >
                     Send
