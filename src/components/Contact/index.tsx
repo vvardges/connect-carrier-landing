@@ -1,38 +1,54 @@
-"use client";
+"use client"
 
-import React,{ useRef } from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+
+type ToastProps = {
+  message: string;
+  type: "success" | "error";
+  onClose: () => void;
+};
+
+const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
+  React.useEffect(() => {
+    const timer = setTimeout(onClose, 4000);
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <div
+      className={`fixed top-5 left-1/2 -translate-x-1/2 z-[1000] px-4 py-2 rounded shadow-lg text-white 
+        ${type === "success" ? "bg-green-600" : "bg-red-600"}`}
+    >
+      {message}
+    </div>
+  );
+};
 
 const Contact = () => {
+  const form = useRef<HTMLFormElement>(null);
+  const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
 
-  const formRef = useRef<HTMLFormElement>(null);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
+    if (!form.current) return;
 
-   const data = {
-      fullName: (form.elements.namedItem("fullName") as HTMLInputElement).value,
-      email: (form.elements.namedItem("email") as HTMLInputElement).value,
-      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
-      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
-    };
-
-    try {
-      const res = await fetch("/api/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      const result = await res.json();
-      if (res.ok) alert("Ուղարկվեց հաջողությամբ");
-      else alert(" Սխալ " + result.message);
-    } catch (err) {
-      console.error(err);
-      alert("Սխալ");
-    } finally {
-      form.reset();
-    }
+    emailjs
+      .sendForm(
+        "service_sskxjow",
+        "template_w0xkbse",
+        form.current,
+        { publicKey: "R-rJXEPoHJaYNENBE" }
+      )
+      .then(
+        () => {
+          setToast({ msg: "Message sent successfully!", type: "success" });
+          form.current?.reset();
+        },
+        (error) => {
+          setToast({ msg: `Send failed: ${error.text || "Unknown error"}`, type: "error" });
+        }
+      );
   };
 
   return (
@@ -108,7 +124,7 @@ const Contact = () => {
               <h3 className="mb-8 text-2xl font-semibold text-dark dark:text-white md:text-[28px] md:leading-[1.42]">
                 Send us a Message
               </h3>
-              <form ref={formRef} onSubmit={handleSubmit}>
+              <form ref={form} onSubmit={sendEmail}>
                 <div className="mb-[22px]">
                   <label
                     htmlFor="fullName"
@@ -118,6 +134,7 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    required
                     name="fullName"
                     placeholder="Adam Gelius"
                     className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
@@ -133,6 +150,7 @@ const Contact = () => {
                   <input
                     type="email"
                     name="email"
+                    required
                     placeholder="example@yourmail.com"
                     className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                   />
@@ -147,6 +165,7 @@ const Contact = () => {
                   <input
                     type="text"
                     name="phone"
+                    required
                     placeholder="+885 1254 5211 552"
                     className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                   />
@@ -161,6 +180,7 @@ const Contact = () => {
                   <textarea
                     name="message"
                     rows={1}
+                    required
                     placeholder="type your message here"
                     className="w-full resize-none border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-primary focus:outline-none dark:border-dark-3 dark:text-white"
                   ></textarea>
@@ -174,6 +194,13 @@ const Contact = () => {
                   </button>
                 </div>
               </form>
+              {toast && (
+                <Toast
+                  message={toast.msg}
+                  type={toast.type}
+                  onClose={() => setToast(null)}
+                />
+              )}
             </div>
           </div>
         </div>
