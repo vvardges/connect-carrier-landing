@@ -19,15 +19,15 @@ const Faq = () => {
               question="Create Your Account"
               answer={
                 <div>
-                  <p>Click the Register button on the login page. Fill in the required fields:</p>
+                  <p>Click the Register button. Fill in the required fields:</p>
                   <ul className="list-disc list-inside mt-2 space-y-1">
                     <li>Email</li>
-                    <li>Password (minimum 6 characters)</li>
+                    <li>Password</li>
                     <li>Full Name</li>
                     <li>Company Name</li>
                     <li>VAT Number</li>
                   </ul>
-                  <p className="mt-2">Then click <strong>Create Account</strong>.</p>
+                  <p className="mt-2">Then click <strong>Register</strong>.</p>
                 </div>
               }
             />
@@ -74,7 +74,7 @@ const Faq = () => {
                 <div>
                   <p>When all required sections are complete:</p>
                   <ul className="list-disc list-inside mt-2 space-y-1">
-                    <li>Click <strong>Submit for Review</strong></li>
+                    <li>Click <strong>Finish</strong></li>
                     <li>Your application status changes to <em>Pending Review</em></li>
                     <li>Our administrators will check your details & documents</li>
                   </ul>
