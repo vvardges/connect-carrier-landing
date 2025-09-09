@@ -36,7 +36,7 @@ const Contact = () => {
     emailjs
       .sendForm(
         "service_sskxjow",
-        "template_w0xkbse",
+        "template_qt8a994",
         form.current,
         { publicKey: "R-rJXEPoHJaYNENBE" }
       )
@@ -85,7 +85,8 @@ const Contact = () => {
                       Our Location
                     </h3>
                     <p className="text-base text-body-color dark:text-dark-6">
-                      401 Broadway, 24th Floor, Orchard Cloud View, London
+                        Ruhrallee 9, Dortmund, 44139
+                        Germany
                     </p>
                   </div>
                 </div>
@@ -105,10 +106,7 @@ const Contact = () => {
                       How Can We Help?
                     </h3>
                     <p className="text-base text-body-color dark:text-dark-6">
-                      info@yourdomain.com
-                    </p>
-                    <p className="mt-1 text-base text-body-color dark:text-dark-6">
-                      contact@yourdomain.com
+                      info@connectcarrier.de
                     </p>
                   </div>
                 </div>
@@ -118,8 +116,7 @@ const Contact = () => {
           <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
             <div
               className="wow fadeInUp rounded-lg bg-white px-8 py-10 shadow-testimonial dark:bg-dark-2 dark:shadow-none sm:px-10 sm:py-12 md:p-[60px] lg:p-10 lg:px-10 lg:py-12 2xl:p-[60px]"
-              data-wow-delay=".2s
-              "
+              data-wow-delay=".2s"
             >
               <h3 className="mb-8 text-2xl font-semibold text-dark dark:text-white md:text-[28px] md:leading-[1.42]">
                 Send us a Message
