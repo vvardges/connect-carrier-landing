@@ -42,8 +42,6 @@ const Header = () => {
 
   const { theme, setTheme } = useTheme();
 
-  console.log(pathUrl === "/");
-
   return (
     <>
       <header
