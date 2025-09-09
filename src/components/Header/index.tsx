@@ -42,6 +42,8 @@ const Header = () => {
 
   const { theme, setTheme } = useTheme();
 
+  console.log(pathUrl === "/");
+
   return (
     <>
       <header
@@ -155,12 +157,11 @@ const Header = () => {
                             <Link
                               scroll={true}
                               href={menuItem.path}
-                              className={`ud-menu-scroll flex py-2 text-base transition-all duration-200 lg:inline-flex lg:px-0 lg:py-6
-                              ${pathUrl === menuItem.path
-                                ? "dark:text-white group-hover:scale-110"
-                                : sticky
-                                ? "text-dark dark:text-white group-hover:scale-110"
-                                : "group-hover:scale-110"
+                              className={`ud-menu-scroll flex py-2 text-base transition-all duration-200 lg:inline-flex lg:px-0 lg:py-6 group-hover:scale-110
+                              ${pathUrl !== "/" && "!text-dark dark:!text-white"} ${
+                                  pathUrl === "/" && sticky
+                                      ? "text-dark dark:text-white"
+                                      : "text-white"
                               }`}
                             >
                               {menuItem.title}
@@ -275,15 +276,17 @@ const Header = () => {
                 <>
                   <Link
                     href="https://www.connectcarrier.pl/auth/login"
-                    className={`px-7 py-3 text-base font-medium hover:opacity-70 text-dark dark:text-white`}
+                    className={`px-7 py-3 text-base font-medium hover:opacity-70 text-dark dark:text-white ${
+                        !sticky && pathUrl === "/" && "text-white"
+                    }`}
                   >
-                    Sign In
+                    Login
                   </Link>
                   <Link
                     href="https://www.connectcarrier.pl/auth/register"
                     className={`rounded-lg px-6 py-3 text-base font-medium text-white duration-300 ease-in-out bg-primary hover:bg-primary/90 dark:bg-white/10 dark:hover:bg-white/20`}
                   >
-                    Sign Up
+                    Register
                   </Link>
                 </>
               </div>
