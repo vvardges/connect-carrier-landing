@@ -35,7 +35,7 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_sskxjow",
+        "service_xkgbohc",
         "template_qt8a994",
         form.current,
         { publicKey: "R-rJXEPoHJaYNENBE" }
