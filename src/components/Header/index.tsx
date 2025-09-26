@@ -273,7 +273,7 @@ const Header = () => {
                 </button>
                 <>
                   <Link
-                    href="https://www.connectcarrier.pl/auth/login"
+                    href="/app/auth/login"
                     className={`px-7 py-3 text-base font-medium hover:opacity-70 text-dark dark:text-white ${
                         !sticky && pathUrl === "/" && "text-white"
                     }`}
@@ -281,7 +281,7 @@ const Header = () => {
                     Login
                   </Link>
                   <Link
-                    href="https://www.connectcarrier.pl/auth/register"
+                    href="/app/auth/register"
                     className={`rounded-lg px-6 py-3 text-base font-medium text-white duration-300 ease-in-out bg-primary hover:bg-primary/90 dark:bg-white/10 dark:hover:bg-white/20`}
                   >
                     Register
