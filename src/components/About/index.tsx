@@ -2,12 +2,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-import i1 from "../../../public/images/About/ConnectCarrier.jpg";
-import i2 from "../../../public/images/About/ConnectCarrier2.jpg";
-
 const slides = [
-  { id: 1, src: i1, alt: "Connect Carrier 1" },
-  { id: 2, src: i2, alt: "Connect Carrier 2" },
+  { id: 1, src: "/images/about/1.jpg", alt: "Connect Carrier 1" },
+  { id: 2, src: "/images/about/2.jpg", alt: "Connect Carrier 2" },
 ];
 
 const About = () => {
