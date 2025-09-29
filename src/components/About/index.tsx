@@ -1,11 +1,8 @@
 "use client";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
-const slides = [
-  { id: 1, src: "/images/about/1.jpg", alt: "Connect Carrier 1" },
-  { id: 2, src: "/images/about/2.jpg", alt: "Connect Carrier 2" },
-];
+const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const About = () => {
   const [index, setIndex] = useState(0);
@@ -55,9 +52,9 @@ const About = () => {
               <div className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-xl">
                 {slides.map((slide, i) => (
                   <Image
-                    key={slide.id}
-                    src={slide.src}
-                    alt={slide.alt}
+                    alt={String(slide)}
+                    key={slide}
+                    src={`/images/about/${slide}.jpg`}
                     fill
                     priority={i === 0}
                     className={`absolute left-0 top-0 h-full w-full object-cover transition-opacity duration-700 ${

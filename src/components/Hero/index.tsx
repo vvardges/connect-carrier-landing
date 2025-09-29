@@ -1,13 +1,17 @@
 import Image from "next/image";
-import Link from "next/link";
+import BackgroundVideo from "@/components/BackgroundVideo";
+import React from "react";
 
 const Hero = () => {
   return (
     <>
       <section
         id="home"
-        className="relative overflow-hidden bg-primary pt-[120px] md:pt-[130px] lg:pt-[160px]"
+        className="relative overflow-hidden pt-[120px] md:pt-[130px] lg:pt-[160px]"
       >
+        <div className="absolute left-0 top-0 -z-[1] w-full h-full dark:bg-dark-2 bg-gray-1">
+          <BackgroundVideo/>
+        </div>
         <div className="container">
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4">
