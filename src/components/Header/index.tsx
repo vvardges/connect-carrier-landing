@@ -45,7 +45,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`ud-header left-0 top-0 z-40 flex w-full items-center ${
+        className={`ud-header left-0 top-0 z-40 flex w-full items-center max-[959px]:py-[7px] ${
           sticky
             ? "shadow-nav fixed z-[999] border-b border-stroke bg-white/80 backdrop-blur-[5px] dark:border-dark-3/20 dark:bg-dark/10"
             : "absolute bg-transparent"
@@ -65,14 +65,14 @@ const Header = () => {
                       alt="logo"
                       width={240}
                       height={30}
-                      className="header-logo w-full dark:hidden max-w-[140px]"
+                      className="header-logo w-full dark:hidden max-w-[140px] pl-2"
                     />
                     <Image
                       src={`/images/logo/logo-white.png`}
                       alt="logo"
                       width={240}
                       height={30}
-                      className="header-logo hidden dark:block max-w-[140px]"
+                      className="header-logo hidden dark:block max-w-[140px] pl-2"
                     />
                   </>
                 ) : (
@@ -82,14 +82,14 @@ const Header = () => {
                       alt="logo_black"
                       width={140}
                       height={30}
-                      className="header-logo dark:hidden max-w-[140px]"
+                      className="header-logo dark:hidden max-w-[140px] pl-2"
                     />
                     <Image
                       src={`/images/logo/logo-white.png`}
                       alt="logo"
                       width={140}
                       height={30}
-                      className="header-logo hidden dark:block max-w-[140px]"
+                      className="header-logo hidden dark:block max-w-[140px]  pl-2"
                     />
                   </>
                 )}
@@ -97,40 +97,6 @@ const Header = () => {
             </div>
             <div className="flex w-full items-center justify-between px-4">
               <div>
-                <button
-                  onClick={navbarToggleHandler}
-                  id="navbarToggler"
-                  aria-label="Mobile Menu"
-                  className="absolute right-8 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
-                >
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
-                      navbarOpen ? " top-[7px] rotate-45" : " "
-                    } ${pathUrl !== "/" && "!bg-dark dark:!bg-white"} ${
-                      pathUrl === "/" && sticky
-                        ? "bg-dark dark:bg-white"
-                        : "bg-white"
-                    }`}
-                  />
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
-                      navbarOpen ? "opacity-0 " : " "
-                    } ${pathUrl !== "/" && "!bg-dark dark:!bg-white"} ${
-                      pathUrl === "/" && sticky
-                        ? "bg-dark dark:bg-white"
-                        : "bg-white"
-                    }`}
-                  />
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
-                      navbarOpen ? " top-[-8px] -rotate-45" : " "
-                    } ${pathUrl !== "/" && "!bg-dark dark:!bg-white"} ${
-                      pathUrl === "/" && sticky
-                        ? "bg-dark dark:bg-white"
-                        : "bg-white"
-                    }`}
-                  />
-                </button>
                 <nav
                   id="navbarCollapse"
                   className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark-2 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 lg:dark:bg-transparent ${
@@ -252,8 +218,7 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              
-              <div className="hidden items-center justify-end pr-16 sm:flex lg:pr-0">
+              <div className="hidden items-center justify-end pr-1 sm:flex lg:pr-0">
                 <Link
                   href="/app/auth/login"
                   className={`px-7 py-3 text-base font-medium hover:opacity-70 text-dark dark:text-white ${
@@ -270,7 +235,7 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-              <div className="">
+            <div className="flex justity-center">
               <button
                 aria-label="theme toggler"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -296,6 +261,40 @@ const Header = () => {
                   </svg>
                 </span>
               </button>
+               <button
+                  onClick={navbarToggleHandler}
+                  id="navbarToggler"
+                  aria-label="Mobile Menu"
+                  className="block rounded-lg px-3 ring-primary focus:ring-2 lg:hidden"
+                >
+                  <span
+                    className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
+                      navbarOpen ? " top-[7px] rotate-45" : " "
+                    } ${pathUrl !== "/" && "!bg-dark dark:!bg-white"} ${
+                      pathUrl === "/" && sticky
+                        ? "bg-dark dark:bg-white"
+                        : "bg-white"
+                    }`}
+                  />
+                  <span
+                    className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
+                      navbarOpen ? "opacity-0 " : " "
+                    } ${pathUrl !== "/" && "!bg-dark dark:!bg-white"} ${
+                      pathUrl === "/" && sticky
+                        ? "bg-dark dark:bg-white"
+                        : "bg-white"
+                    }`}
+                  />
+                  <span
+                    className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
+                      navbarOpen ? " top-[-8px] -rotate-45" : " "
+                    } ${pathUrl !== "/" && "!bg-dark dark:!bg-white"} ${
+                      pathUrl === "/" && sticky
+                        ? "bg-dark dark:bg-white"
+                        : "bg-white"
+                    }`}
+                  />
+                </button>
             </div>
           </div>
         </div>

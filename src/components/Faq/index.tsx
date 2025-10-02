@@ -1,7 +1,7 @@
 import SectionTitle from "../Common/SectionTitle";
 import SingleFaq from "./SingleFaq";
 
-const Faq = () => {
+export default function Faq() {
   return (
     <section className="relative z-20 overflow-hidden bg-white pb-8 pt-20 dark:bg-dark lg:pb-[30px] lg:pt-[200px]">
       <div className="container">
@@ -114,5 +114,3 @@ const Faq = () => {
     </section>
   );
 };
-
-export default Faq;
