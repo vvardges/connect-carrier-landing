@@ -23,6 +23,16 @@ const menuData: Menu[] = [
     title: "How To Register",
     path: "/register",
     newTab: false,
+  },{
+    id: 5,
+    title: "Login",
+    path: "/app/auth/login",
+    newTab: false,
+  },{
+    id: 6,
+    title: "Register",
+    path: "/app/auth/register",
+    newTab: false,
   },
 ];
 export default menuData;

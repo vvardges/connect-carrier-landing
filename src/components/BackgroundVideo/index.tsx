@@ -11,7 +11,7 @@ const BackgroundVideo = () => {
                 loop
                 playsInline
             >
-                <source src="/videos/hero.mp4" type="video/mp4" />
+                <source src="/videos/hero.webm" type="video/webm" />
                 Your browser does not support the video tag.
             </video>
         </div>
