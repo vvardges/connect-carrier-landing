@@ -61,14 +61,14 @@ const Header = () => {
                 {pathUrl !== "/" ? (
                   <>
                     <Image
-                      src={`/images/logo/logo.png`}
+                      src={`/images/logo/logo-blue.png`}
                       alt="logo"
                       width={240}
                       height={30}
                       className="header-logo w-full dark:hidden max-w-[140px] pl-2"
                     />
                     <Image
-                      src={`/images/logo/logo-white.png`}
+                      src={`/images/logo/logo.png`}
                       alt="logo"
                       width={240}
                       height={30}
@@ -78,14 +78,14 @@ const Header = () => {
                 ) : (
                   <>
                     <Image
-                      src={`${sticky ? "/images/logo/logo.png" : "/images/logo/logo-white.png"}`}
+                      src={`${sticky ? "/images/logo/logo-blue.png" : "/images/logo/logo.png"}`}
                       alt="logo_black"
                       width={140}
                       height={30}
                       className="header-logo dark:hidden max-w-[140px] pl-2"
                     />
                     <Image
-                      src={`/images/logo/logo-white.png`}
+                      src={`/images/logo/logo.png`}
                       alt="logo"
                       width={140}
                       height={30}
@@ -117,7 +117,7 @@ const Header = () => {
                           }`}
                         >
                         {pathUrl !== "/" ? (
-                          <Link
+                           <Link
                             onClick={navbarToggleHandler}
                             scroll={true}
                             href={menuItem.path}

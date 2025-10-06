@@ -11,7 +11,6 @@ export default function Faq() {
           width="640px"
           center
         />
-
         <div className="-mx-4 mt-[60px] flex flex-wrap lg:mt-20">
           <div className="w-full px-4 lg:w-1/2">
             <SingleFaq

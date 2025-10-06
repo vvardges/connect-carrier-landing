@@ -11,17 +11,16 @@ const Footer = () => {
         <div className="mb-10 w-full flex gap-y-10 flex-col items-center">
           <Link href="/" className="mb-2 inline-block max-w-[160px]">
             <Image
-              src="/images/logo/logo-white.png"
+              src="/images/logo/logo.png"
               alt="logo"
               width={140}
               height={30}
               className="max-w-full"
             />
           </Link>
-
           <div className="w-full flex">
             <div className="mb-2 w-full flex gap-12 justify-center">
-              <ul className="flex gap-x-10 flex-wrap">
+              <ul className="flex gap-x-10 flex-wrap justify-center">
                 <li>
                   <Link
                     href="#"
@@ -36,6 +35,21 @@ const Footer = () => {
                     className="mb-3 inline-block text-base text-gray-7"
                   >
                     About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/media"
+                    className="mb-3 inline-block text-base text-gray-7"
+                  >
+                    Media
+                  </Link>
+                </li><li>
+                  <Link
+                    href="/#contact"
+                    className="mb-3 inline-block text-base text-gray-7"
+                  >
+                    Contact
                   </Link>
                 </li>
                 <li>
@@ -55,7 +69,7 @@ const Footer = () => {
       <div className="mt-12 border-t border-[#8890A4] border-opacity-40 py-8 lg:mt-[60px]">
         <div className="container">
           <div className="flex justify-center">
-            <p className="text-base text-gray-7">
+            <p className="text-center text-sm text-gray-400 sm:text-md">
               © 2025 HAYWAY GROUP LLC. All rights reserved.
             </p>
           </div>
