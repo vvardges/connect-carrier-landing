@@ -121,7 +121,7 @@ const Header = () => {
                             onClick={navbarToggleHandler}
                             scroll={true}
                             href={menuItem.path}
-                            className="ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6"
+                            className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6`}
                           >
                             {menuItem.title}
                           </Link>
@@ -130,11 +130,9 @@ const Header = () => {
                             scroll={true}
                             href={menuItem.path}
                             className={`ud-menu-scroll flex py-2 text-base transition-all duration-200 lg:inline-flex lg:px-0 lg:py-6 group-hover:scale-110
-                              ${pathUrl !== "/" && "!text-white white:!text-white"} ${
-                              pathUrl === "/" && sticky
-                                ? "text-dark dark:text-white"
-                                : theme == "dark" ? "dark" : "white"
-                            }`}
+                              ${sticky && theme !== "dark" ? "text-dark" : "text-white"}
+                              
+                            `}
                           >
                             {menuItem.title}
                           </Link>
