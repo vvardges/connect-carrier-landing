@@ -20,7 +20,7 @@ const Hero = () => {
       </section>
       <div className="bg-gray-2 dark:bg-dark-3">
         <div className="flex flex-wrap items-center justify-center text-center pt-[30px]">
-        <p className="px-[20px] mx-auto max-w-[780px] text-base font-medium sm:text-lg sm:leading-[1.44] flex justify-center text-white items-center text-gray-900 dark:text-dark-8  ">
+        <p className="px-[20px] mx-auto max-w-[780px] text-base font-medium sm:text-lg sm:leading-[1.44] flex justify-center items-center text-gray-800 dark:text-dark-8  ">
           It allows you to collaborate directly with some of the world’s largest companies without worrying about timely payments or reliability of partnerships.
           With our solution, you can carry out transport services for global corporations while gaining access to a transparent system of orders at the most competitive rates.
           What’s more, ConnectCarrier enables real-time route booking, giving you full control over scheduling and fleet efficiency.
