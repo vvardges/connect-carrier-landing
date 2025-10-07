@@ -29,7 +29,7 @@ const About = () => {
                 <h2 className="mb-5 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-[40px] sm:leading-[1.2] max-[700px]:text-3xl">
                   Your Partner in Transport
                 </h2>
-                <p className="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6">
+                <p className="mb-10 text-base leading-relaxed text-body-color text-white">
                   ConnectCarrier company provides services in the field of land,
                   sea, and air transport.
                   <br /> <br />
