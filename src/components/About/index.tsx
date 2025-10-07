@@ -1,19 +1,25 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
-const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+import {useLandingFiles} from "@/hooks/useLandingFiles";
 
 const About = () => {
   const [index, setIndex] = useState(0);
+    const { files, loading, error } = useLandingFiles();
+    const slides = files
+        .filter(file => file.fileType === "image")
+        .map(file => file.fileUrl)
+        .sort(() => Math.random() - 0.5) // shuffle the array
+        .slice(0, 10); // take first 10
 
-  // autoplay
+    // autoplay
   useEffect(() => {
+    if(slides.length === 0) return;
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides]);
 
   return (
     <section
@@ -29,7 +35,7 @@ const About = () => {
                 <h2 className="mb-5 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-[40px] sm:leading-[1.2] max-[700px]:text-3xl">
                   Your Partner in Transport
                 </h2>
-                <p className="mb-10 text-base leading-relaxed text-body-color text-gray-800 dark:text-dark-8">
+                <p className="mb-10 text-base leading-relaxed text-gray-800 dark:text-dark-8">
                   ConnectCarrier company provides services in the field of land,
                   sea, and air transport.
                   <br /> <br />
@@ -48,15 +54,15 @@ const About = () => {
             </div>
 
             {/* Image slider */}
-            <div className="w-full px-4 lg:w-1/2">
+            {!loading && !error && <div className="w-full px-4 lg:w-1/2">
               <div className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-xl">
                 {slides.map((slide, i) => (
                   <Image
                     alt={String(slide)}
-                    key={slide}
-                    src={`/images/about/${slide}.jpg`}
+                    key={i}
+                    src={slide}
                     fill
-                    priority={i === 0}
+                    priority={i < 3}
                     className={`absolute left-0 top-0 h-full w-full object-cover transition-opacity duration-700 ${
                       i === index ? "opacity-100" : "opacity-0"
                     }`}
@@ -76,7 +82,7 @@ const About = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </div>}
           </div>
         </div>
       </div>
