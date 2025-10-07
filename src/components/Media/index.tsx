@@ -1,37 +1,22 @@
 'use client'
 
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import Image from "next/image";
 import NotFound from "@/components/NotFound";
-
-type File = {
-    fileName: string;
-    fileType: string;
-    fileUrl: string;
-}
-
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+import {useLandingFiles} from "@/hooks/useLandingFiles";
 
 export default function Media() {
   const [activeTab, setActiveTab] = useState('images');
-  const [files, setFiles] = useState<File[]>([]);
-  const handleFetch = async () => {
-      try {
-          const response = await fetch(`${apiUrl}/File/Get/Landing`);
-          const data = await response.json();
-          setFiles(data);
-      } catch (error) {
-          console.error('Error fetching data:', error);
-      }
-  }
+  const { files, loading } = useLandingFiles();
 
-  useEffect(() => {
-      handleFetch();
-  }, []);
+  if (loading)
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
+            </div>
+        );
 
-  if(files.length === 0) return (
-      <NotFound />
-  )
+  if (files.length === 0) return <NotFound />;
 
   return (
       <section className="relative z-20 overflow-hidden bg-white pb-8 pt-20 dark:bg-dark lg:pb-[30px] lg:pt-[200px]">
