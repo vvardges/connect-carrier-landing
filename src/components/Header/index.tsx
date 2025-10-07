@@ -129,8 +129,12 @@ const Header = () => {
                           <Link
                             scroll={true}
                             href={menuItem.path}
-                            className={`ud-menu-scroll flex py-2 text-base transition-all duration-200 lg:inline-flex lg:px-0 lg:py-6 group-hover:scale-110
-                              ${sticky && theme !== "dark" ? "text-dark" : "text-white"}
+                            className={`ud-menu-scroll flex py-2 text-base transition-all duration-200
+                              lg:inline-flex lg:px-0 lg:py-6 group-hover:scale-110
+                              ${window.innerWidth <= 960 
+                                ? (theme !== "dark" ? "text-dark" : "text-white")
+                                : (sticky && theme !== "dark" ? "text-dark" : "text-white")
+                              }
                               
                             `}
                           >
