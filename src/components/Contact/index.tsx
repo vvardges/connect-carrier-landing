@@ -63,9 +63,6 @@ const Contact = () => {
                 <span className="mb-4 block text-base font-medium text-dark dark:text-white">
                   CONTACT US
                 </span>
-                {/* <h2 className="max-w-[320px] text-[32px] lg:text-[36px] font-semibold leading-tight text-dark dark:text-white">
-                  Let's talk about your problem.
-                </h2> */}
               </div>
 
               <div className="py-12 pl-0.5 grid grid-cols-1 md:grid-cols-2 gap-10 text-center md:text-left text-gray-600 dark:text-gray-300">

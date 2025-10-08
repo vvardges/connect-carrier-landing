@@ -15,18 +15,6 @@ const Header = () => {
     setNavbarOpen(!navbarOpen);
   };
 
-  useEffect(() => {
-  if (pathUrl === "/" && window.location.hash) {
-    const id = window.location.hash.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) {
-      setTimeout(() => {
-        el.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-    }
-  }
-}, [pathUrl]);
-
   const [sticky, setSticky] = useState(false);
   const handleStickyNavbar = () => {
     if (window.scrollY >= 80) {
@@ -35,7 +23,7 @@ const Header = () => {
       setSticky(false);
     }
   };
-  
+
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
   });
@@ -128,34 +116,26 @@ const Header = () => {
                         {pathUrl !== "/" ? (
                            <Link
                             onClick={navbarToggleHandler}
-                            scroll={true}
+                            scroll={false}
                             href={menuItem.path}
                             className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6`}
                           >
                             {menuItem.title}
                           </Link>
                         ) : (
-                        <Link
-                          href={menuItem.path}
-                          onClick={(e) => {
-                            if (menuItem.path?.startsWith("/#")) {
-                              const id = menuItem.path.replace("/#", "");
-                              if (pathUrl === "/") {
-                                e.preventDefault();
-                                const el = document.getElementById(id);
-                                if (el) el.scrollIntoView({ behavior: "smooth" });
+                          <Link
+                            scroll={true}
+                            href={menuItem.path}
+                            className={`ud-menu-scroll flex py-2 text-base transition-all duration-200
+                              lg:inline-flex lg:px-0 lg:py-6 group-hover:scale-110
+                              ${window.innerWidth <= 960
+                                ? (theme !== "dark" ? "text-dark" : "text-white")
+                                : (sticky && theme !== "dark" ? "text-dark" : "text-white")
                               }
-                            }
-                          }}
-                          className={`ud-menu-scroll flex py-2 text-base transition-all duration-200
-                            lg:inline-flex lg:px-0 lg:py-6 group-hover:scale-110
-                            ${window.innerWidth <= 960
-                              ? theme !== "dark" ? "text-dark" : "text-white"
-                              : sticky && theme !== "dark" ? "text-dark" : "text-white"
-                            }`}
-                        >
-                          {menuItem.title}
-                        </Link>
+                            `}
+                          >
+                            {menuItem.title}
+                          </Link>
                         )}
                       </li>
                       ) : (
