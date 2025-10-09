@@ -10,13 +10,11 @@ import menuData from "./menuData";
 
 const Header = () => {
   const pathUrl = usePathname();
-  // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
 
-  // Sticky Navbar
   const [sticky, setSticky] = useState(false);
   const handleStickyNavbar = () => {
     if (window.scrollY >= 80) {
@@ -25,12 +23,11 @@ const Header = () => {
       setSticky(false);
     }
   };
-  
+
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
   });
 
-  // submenu handler
   const [openIndex, setOpenIndex] = useState(-1);
   const handleSubmenu = (index: any) => {
     if (openIndex === index) {
@@ -41,7 +38,6 @@ const Header = () => {
   };
 
   const { theme, setTheme } = useTheme();
-
   return (
     <>
       <header
@@ -119,7 +115,7 @@ const Header = () => {
                         {pathUrl !== "/" ? (
                            <Link
                             onClick={navbarToggleHandler}
-                            scroll={true}
+                            scroll={false}
                             href={menuItem.path}
                             className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6`}
                           >
@@ -131,11 +127,10 @@ const Header = () => {
                             href={menuItem.path}
                             className={`ud-menu-scroll flex py-2 text-base transition-all duration-200
                               lg:inline-flex lg:px-0 lg:py-6 group-hover:scale-110
-                              ${window.innerWidth <= 960 
+                              ${window.innerWidth <= 960
                                 ? (theme !== "dark" ? "text-dark" : "text-white")
                                 : (sticky && theme !== "dark" ? "text-dark" : "text-white")
                               }
-                              
                             `}
                           >
                             {menuItem.title}
