@@ -38,7 +38,6 @@ const Header = () => {
   };
 
   const { theme, setTheme } = useTheme();
-  console.log()
   return (
     <>
       <header
