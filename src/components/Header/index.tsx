@@ -7,15 +7,41 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import menuData from "./menuData";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const pathUrl = usePathname();
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [sticky, setSticky] = useState(false);
+
+
+  const { i18n, t } = useTranslation();
+  const { theme, setTheme } = useTheme();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const languageOptions = {
+    en: { name: "En", icon: "/images/flags/us.png" },
+    ru: { name: "Ru", icon: "/images/flags/ru.png" },
+    pl: { name: "Pl", icon: "/images/flags/pl.png" },
+    de: { name: "De", icon: "/images/flags/de.png" },
+  };
+
+  const lang = i18n.language?.split("-")[0] || "en";
+  const selectedLanguage =
+    languageOptions[lang as keyof typeof languageOptions] || languageOptions.en;
+
+  const toggleLangMenu = () => setIsOpen(!isOpen);
+
+  const handleLanguageChange = (lang: string) => {
+    i18n.changeLanguage(lang);
+    setIsOpen(false);
+  };
+
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
 
-  const [sticky, setSticky] = useState(false);
   const handleStickyNavbar = () => {
     if (window.scrollY >= 80) {
       setSticky(true);
@@ -37,7 +63,6 @@ const Header = () => {
     }
   };
 
-  const { theme, setTheme } = useTheme();
   return (
     <>
       <header
@@ -101,7 +126,7 @@ const Header = () => {
                       : "invisible top-[120%] opacity-0"
                   }`}
                 >
-                  <ul className="block lg:ml-8 lg:flex lg:gap-x-8 xl:ml-14 xl:gap-x-12">
+                  <ul className="block lg:ml-1 lg:flex lg:gap-x-7 xl:ml-14 xl:gap-x-12">
                     {menuData.map((menuItem, index) =>
                       menuItem.path ? (
                         <li
@@ -117,7 +142,7 @@ const Header = () => {
                             onClick={navbarToggleHandler}
                             scroll={false}
                             href={menuItem.path}
-                            className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6`}
+                            className={`ud-menu-scroll whitespace-nowrap flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6`}
                           >
                             {menuItem.title}
                           </Link>
@@ -125,7 +150,7 @@ const Header = () => {
                           <Link
                             scroll={true}
                             href={menuItem.path}
-                            className={`ud-menu-scroll flex py-2 text-base transition-all duration-200
+                            className={`ud-menu-scroll flex py-2 text-base transition-all duration-200 whitespace-nowrap
                               lg:inline-flex lg:px-0 lg:py-6 group-hover:scale-110
                               ${window.innerWidth <= 960
                                 ? (theme !== "dark" ? "text-dark" : "text-white")
@@ -232,7 +257,7 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-            <div className="flex justity-center">
+            <div className="flex justity-center mr-2">
               <button
                 aria-label="theme toggler"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -292,6 +317,44 @@ const Header = () => {
                     }`}
                   />
                 </button>
+            </div>
+            <div className="relative inline-block mr-2">
+              <div
+                onClick={toggleLangMenu}
+                className={`flex items-center cursor-pointer p-1  rounded-lg bg-primary hover:bg-primary/90 dark:bg-white/10 dark:hover:bg-white/20 min-w-max`}
+              >
+                <img
+                  src={selectedLanguage.icon}
+                  alt={selectedLanguage.name}
+                  className="w-[24px] h-[17px]"
+                />
+              </div>
+
+              {isOpen && (
+                <div
+                  className={`absolute top-[110%] left-0 z-50 rounded-lg shadow-md ${
+                    theme === "dark" ? "bg-gray-900" : "bg-gray-300"
+                  }`}
+                >
+                  {Object.entries(languageOptions).map(([code, { icon }]) => (
+                    <div
+                      key={code}
+                      onClick={() => handleLanguageChange(code)}
+                      className={`flex items-center gap-2 p-1.5 cursor-pointer transition-colors duration-150 ${
+                        theme === "dark"
+                          ? "text-white hover:bg-gray-700"
+                          : "text-black hover:bg-gray-200"
+                      }`}
+                    >
+                      <img
+                        src={icon}
+                        alt={selectedLanguage.name}
+                        className="w-[24px] h-[17px]"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>

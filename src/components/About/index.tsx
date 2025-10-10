@@ -1,18 +1,22 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import {useLandingFiles} from "@/hooks/useLandingFiles";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation("common");
   const [index, setIndex] = useState(0);
     const { files, loading, error } = useLandingFiles();
-    const slides = files
-        .filter(file => file.fileType === "image")
-        .map(file => file.fileUrl)
-        .sort(() => Math.random() - 0.5) // shuffle the array
-        .slice(0, 10); // take first 10
 
-    // autoplay
+  
+  const slides = files
+    .filter(file => file.fileType === "image")
+    .map(file => file.fileUrl)
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 10);
+
   useEffect(() => {
     if(slides.length === 0) return;
     const timer = setInterval(() => {
