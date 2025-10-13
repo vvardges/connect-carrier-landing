@@ -33,8 +33,16 @@ const Header = () => {
 
   const toggleLangMenu = () => setIsOpen(!isOpen);
 
+  useEffect(() => {
+    const savedLang = localStorage.getItem("selectedLanguage");
+    if (savedLang && savedLang !== i18n.language) {
+      i18n.changeLanguage(savedLang);
+    }
+  }, [i18n]);
+
   const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
+    localStorage.setItem("selectedLanguage", lang); // <- store language
     setIsOpen(false);
   };
 
