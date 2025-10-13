@@ -13,12 +13,11 @@ const Header = () => {
   const pathUrl = usePathname();
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [sticky, setSticky] = useState(false);
-
-
   const { i18n, t } = useTranslation();
   const { theme, setTheme } = useTheme();
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const languageOptions = {
     en: { name: "En", icon: "/images/flags/us.png" },
@@ -45,6 +44,13 @@ const Header = () => {
     localStorage.setItem("selectedLanguage", lang); // <- store language
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 960);
+    handleResize(); // Run once on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -169,7 +175,7 @@ const Header = () => {
                             href={menuItem.path}
                             className={`ud-menu-scroll flex py-2 text-base transition-all duration-200 whitespace-nowrap
                               lg:inline-flex lg:px-0 lg:py-6 group-hover:scale-110
-                              ${window.innerWidth <= 960
+                              ${isMobile
                                 ? (theme !== "dark" ? "text-dark" : "text-white")
                                 : (sticky && theme !== "dark" ? "text-dark" : "text-white")
                               }
@@ -304,7 +310,7 @@ const Header = () => {
                   onClick={navbarToggleHandler}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
-                  className="block rounded-lg px-3 ring-primary focus:ring-2 lg:hidden"
+                  className="block rounded-lg px-3 lg:hidden"
                 >
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
