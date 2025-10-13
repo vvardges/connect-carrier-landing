@@ -321,12 +321,12 @@ const Header = () => {
             <div className="relative inline-block mr-2">
               <div
                 onClick={toggleLangMenu}
-                className={`flex items-center cursor-pointer p-1  rounded-lg bg-primary hover:bg-primary/90 dark:bg-white/10 dark:hover:bg-white/20 min-w-max`}
+                className={`flex items-center cursor-pointer p-1 mb-1 min-w-max`}
               >
                 <img
                   src={selectedLanguage.icon}
                   alt={selectedLanguage.name}
-                  className="w-[24px] h-[17px]"
+                  className="w-[24px] h-[17px] bg-white shadow-[0_0_6px_rgba(0,0,0,0.6)]"
                 />
               </div>
 
