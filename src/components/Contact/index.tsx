@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 
 type ToastProps = {
   message: string;
@@ -28,7 +29,7 @@ const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
-
+  const { t } = useTranslation()
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!form.current) return;
@@ -61,14 +62,14 @@ const Contact = () => {
             <div className="ud-contact-content-wrapper">
               <div className="ud-contact-title">
                 <span className="mb-4 block text-base font-medium text-dark dark:text-white">
-                  CONTACT US
+                  {t("contact.title")}
                 </span>
               </div>
 
               <div className="py-12 pl-0.5 grid grid-cols-1 md:grid-cols-2 gap-10 text-center md:text-left text-gray-600 dark:text-gray-300">
                 <div className="space-y-2">
                   <img src="/images/flags/us.png" alt="USA" className="h-6 mx-auto md:mx-0"style={{ boxShadow: "0px 0px 5px 1px" }} />
-                  <h3 className="text-lg lg:text-xl font-semibold">Headquarter in USA</h3>
+                  <h3 className="text-lg lg:text-xl font-semibold">{t("contact.headquarterUSA")}</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">HayWay Group LLC</p>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">
                     1050 N 3rd St, Laramie,
@@ -83,7 +84,7 @@ const Contact = () => {
                 </div>
                 <div className="space-y-2">
                   <img src="/images/flags/de.png" alt="Germany" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
-                  <h3 className="text-lg lg:text-xl font-semibold">Branch in Germany</h3>
+                  <h3 className="text-lg lg:text-xl font-semibold">{t("contact.branchGermany")}</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">
                     Ruhrallee 9, Dortmund, 44139
                     <br /> Germany
@@ -97,7 +98,7 @@ const Contact = () => {
                 </div>
                 <div className="space-y-2">
                   <img src="/images/flags/pl.png" alt="Poland" className="h-6 mx-auto md:mx-0 shadow-md" style={{ boxShadow: "0px 0px 5px 1px" }}/>
-                  <h3 className="text-lg lg:text-xl font-semibold">Branch in Kraków, Poland</h3>
+                  <h3 className="text-lg lg:text-xl font-semibold">{t("contact.branchKrakow")}</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">
                     Nadbrzezie 15a, 31-983 Kraków
                     <br /> Poland
@@ -111,7 +112,7 @@ const Contact = () => {
                 </div>
                 <div className="space-y-2">
                   <img src="/images/flags/pl.png" alt="Poland" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
-                  <h3 className="text-lg lg:text-xl font-semibold">Branch in Katowice, Poland</h3>
+                  <h3 className="text-lg lg:text-xl font-semibold">{t("contact.branchKatowice")}</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">
                     Bocheńskiego 67, 40-859 Katowice
                     <br /> Poland
@@ -132,7 +133,7 @@ const Contact = () => {
               data-wow-delay=".2s"
             >
               <h3 className="mb-8 text-2xl font-semibold text-dark dark:text-white md:text-[28px] md:leading-[1.42]">
-                Send us a Message
+                {t("contact.sendMessage")}
               </h3>
               <form ref={form} onSubmit={sendEmail}>
                 <div className="mb-[22px]">
@@ -140,7 +141,7 @@ const Contact = () => {
                     htmlFor="fullName"
                     className="mb-4 block text-sm text-body-color dark:text-dark-6"
                   >
-                    Full Name*
+                    {t("contact.fullName")}*
                   </label>
                   <input
                     id="fullName"
@@ -156,7 +157,7 @@ const Contact = () => {
                     htmlFor="email"
                     className="mb-4 block text-sm text-body-color dark:text-dark-6"
                   >
-                    Email*
+                    {t("contact.email")}*
                   </label>
                   <input
                     id="email"
@@ -172,7 +173,7 @@ const Contact = () => {
                     htmlFor="tel"
                     className="mb-4 block text-sm text-body-color dark:text-dark-6"
                   >
-                    Phone*
+                    {t("contact.phone")}*
                   </label>
                   <input
                     id="tel"
@@ -188,7 +189,7 @@ const Contact = () => {
                     htmlFor="message"
                     className="mb-4 block text-sm text-body-color dark:text-dark-6"
                   >
-                    Message*
+                    {t("contact.message")}*
                   </label>
                   <textarea
                     id="message"
@@ -204,7 +205,7 @@ const Contact = () => {
                     type="submit"
                     className="inline-flex items-center justify-center rounded-md bg-primary px-10 py-3 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-primary/90"
                   >
-                    Send
+                    {t("contact.send")}
                   </button>
                 </div>
               </form>

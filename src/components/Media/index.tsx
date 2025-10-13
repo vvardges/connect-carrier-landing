@@ -4,8 +4,10 @@ import {useState} from "react";
 import Image from "next/image";
 import NotFound from "@/components/NotFound";
 import {useLandingFiles} from "@/hooks/useLandingFiles";
+import { useTranslation } from "react-i18next";
 
 export default function Media() {
+  const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState('images');
   const { files, loading } = useLandingFiles();
 
@@ -30,7 +32,7 @@ export default function Media() {
                   }`}
                   onClick={() => setActiveTab('images')}
                 >
-                  Images
+                  {t("media.images")}
                 </button>
                 <button
                   className={`px-4 py-2 rounded-md font-semibold transition ${
@@ -40,7 +42,7 @@ export default function Media() {
                   }`}
                   onClick={() => setActiveTab('videos')}
                 >
-                  Videos
+                  {t("media.videos")}
                 </button>
               </div>
 

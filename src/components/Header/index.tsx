@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import menuData from "./menuData";
 import { useTranslation } from "react-i18next";
@@ -26,7 +26,7 @@ const Header = () => {
     pl: { name: "Pl", icon: "/images/flags/pl.png" },
     de: { name: "De", icon: "/images/flags/de.png" },
   };
-
+  const menuRef = useRef<HTMLDivElement | null>(null);
   const lang = i18n.language?.split("-")[0] || "en";
   const selectedLanguage =
     languageOptions[lang as keyof typeof languageOptions] || languageOptions.en;
@@ -37,6 +37,16 @@ const Header = () => {
     i18n.changeLanguage(lang);
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
@@ -132,9 +142,8 @@ const Header = () => {
                         <li
                           key={index}
                           className={`group relative flex ${
-                            menuItem.title === "Login" || menuItem.title === "Register"
-                              ? "sm:hidden"
-                              : ""
+                            menuItem.title === "header.login" || menuItem.title === "header.register"
+                              ? "md:hidden" : ""
                           }`}
                         >
                         {pathUrl !== "/" ? (
@@ -144,7 +153,7 @@ const Header = () => {
                             href={menuItem.path}
                             className={`ud-menu-scroll whitespace-nowrap flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6`}
                           >
-                            {menuItem.title}
+                            {t(menuItem.title)}
                           </Link>
                         ) : (
                           <Link
@@ -158,7 +167,7 @@ const Header = () => {
                               }
                             `}
                           >
-                            {menuItem.title}
+                            {t(menuItem.title)}
                           </Link>
                         )}
                       </li>
@@ -169,7 +178,7 @@ const Header = () => {
                               onClick={() => handleSubmenu(index)}
                               className={`ud-menu-scroll flex items-center justify-between py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6`}
                             >
-                              {menuItem.title}
+                              {t(menuItem.title)}
 
                               <span className="pl-1">
                                 <svg
@@ -196,7 +205,7 @@ const Header = () => {
                                   : "text-white"
                               }`}
                             >
-                              {menuItem.title}
+                              {t(menuItem.title)}
 
                               <span className="pl-1">
                                 <svg
@@ -230,7 +239,7 @@ const Header = () => {
                                     : "text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
                                 }`}
                               >
-                                {submenuItem.title}
+                                {t(submenuItem.title)}
                               </Link>
                             ))}
                           </div>
@@ -240,20 +249,20 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="hidden items-center justify-end pr-1 sm:flex lg:pr-0">
+              <div className="hidden items-center justify-end pr-1 md:flex lg:pr-0">
                 <Link
                   href="/app/auth/login"
                   className={`px-7 py-3 text-base font-medium hover:opacity-70 text-dark dark:text-white ${
                       !sticky && pathUrl === "/" && "text-white"
                   }`}
                 >
-                  Login
+                {t("header.login")}
                 </Link>
                 <Link
                   href="/app/auth/register"
                   className={`rounded-lg px-6 py-3 text-base font-medium text-white duration-300 ease-in-out bg-primary hover:bg-primary/90 dark:bg-white/10 dark:hover:bg-white/20`}
                 >
-                  Register
+                  {t("header.register")}
                 </Link>
               </div>
             </div>
@@ -318,7 +327,7 @@ const Header = () => {
                   />
                 </button>
             </div>
-            <div className="relative inline-block mr-2">
+            <div className="relative inline-block mr-2" ref={menuRef}>
               <div
                 onClick={toggleLangMenu}
                 className={`flex items-center cursor-pointer p-1 mb-1 min-w-max`}
