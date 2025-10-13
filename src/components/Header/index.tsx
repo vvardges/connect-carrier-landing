@@ -41,13 +41,13 @@ const Header = () => {
 
   const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
-    localStorage.setItem("selectedLanguage", lang); // <- store language
+    localStorage.setItem("selectedLanguage", lang);
     setIsOpen(false);
   };
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 960);
-    handleResize(); // Run once on mount
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -58,9 +58,28 @@ const Header = () => {
         setIsOpen(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+    const menu = document.getElementById("navbarCollapse");
+    const toggler = document.getElementById("navbarToggler");
+
+    if (
+      menu &&
+      toggler &&
+      !menu.contains(event.target as Node) &&
+      !toggler.contains(event.target as Node)
+    ) {
+      setNavbarOpen(false);
+    }
+  };
+
+  document.addEventListener("click", handleClickOutside);
+  return () => document.removeEventListener("click", handleClickOutside);
+}, [])
 
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
@@ -171,6 +190,7 @@ const Header = () => {
                           </Link>
                         ) : (
                           <Link
+                            onClick={navbarToggleHandler}
                             scroll={true}
                             href={menuItem.path}
                             className={`ud-menu-scroll flex py-2 text-base transition-all duration-200 whitespace-nowrap
