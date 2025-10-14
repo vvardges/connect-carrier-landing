@@ -10,7 +10,7 @@ import tseslint from "typescript-eslint";
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
   {
-    ignores: ["dist", ".next"],
+    ignores: ["dist", ".next", postcss.config.cjs],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,

@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 
 import { useLandingFiles } from "@/hooks/useLandingFiles";
 
+const Sort = (Math.random() - 0.5)
+
 const About = () => {
   const { t } = useTranslation();
   const [index, setIndex] = useState(0);
@@ -14,7 +16,7 @@ const About = () => {
   const slides = files
     .filter(file => file.fileType === "image")
     .map(file => file.fileUrl)
-    .sort(() => Math.random() - 0.5)
+    .sort(() => Sort)
     .slice(0, 10);
 
   useEffect(() => {
