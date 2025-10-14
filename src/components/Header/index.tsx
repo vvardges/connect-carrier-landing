@@ -5,10 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+
 import LanguageMenu from "@/components/Header/components/Language";
-import Mood from "@/components/Header/components/Mood";
 import MenuButton from "@/components/Header/components/MenuButton";
-import NavLink from "./components/NavList";
+import Mood from "@/components/Header/components/Mood";
+import NavLink from "@/components/Header/components/NavList";
 
 const Header = () => {
   const pathUrl = usePathname();
@@ -29,7 +30,7 @@ const Header = () => {
   });
 
   const navbarToggleHandler = () => {
-      setNavbarOpen(!navbarOpen);
+    setNavbarOpen(!navbarOpen);
   };
 
   return (
@@ -46,19 +47,19 @@ const Header = () => {
             <div className="w-60 max-w-full px-0">
               <Link
                 href="/"
-                className={`navbar-logo block`}
+                className={"navbar-logo block"}
               >
                 {pathUrl !== "/" ? (
                   <>
                     <Image
-                      src={`/images/logo/logo-blue.png`}
+                      src={"/images/logo/logo-blue.png"}
                       alt="logo"
                       width={240}
                       height={30}
                       className="header-logo w-full dark:hidden max-w-[140px] pl-2"
                     />
                     <Image
-                      src={`/images/logo/logo.png`}
+                      src={"/images/logo/logo.png"}
                       alt="logo"
                       width={240}
                       height={30}
@@ -75,7 +76,7 @@ const Header = () => {
                       className="header-logo dark:hidden max-w-[140px] pl-2"
                     />
                     <Image
-                      src={`/images/logo/logo.png`}
+                      src={"/images/logo/logo.png"}
                       alt="logo"
                       width={140}
                       height={30}
@@ -85,27 +86,27 @@ const Header = () => {
                 )}
               </Link>
             </div>
-            
+
             <div className="flex w-full items-center justify-between px-4">
               <NavLink sticky={sticky} navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} onToggleHandler={navbarToggleHandler} />
               <div className="hidden items-center justify-end pr-1 md:flex lg:pr-0">
                 <Link
                   href="/app/auth/login"
                   className={`px-7 py-3 text-base font-medium hover:opacity-70 text-dark dark:text-white ${
-                      !sticky && pathUrl === "/" && "text-white"
+                    !sticky && pathUrl === "/" && "text-white"
                   }`}
                 >
-                {t("header.login")}
+                  {t("header.login")}
                 </Link>
                 <Link
                   href="/app/auth/register"
-                  className={`rounded-lg px-6 py-3 text-base font-medium text-white duration-300 ease-in-out bg-primary hover:bg-primary/90 dark:bg-white/10 dark:hover:bg-white/20`}
+                  className={"rounded-lg px-6 py-3 text-base font-medium text-white duration-300 ease-in-out bg-primary hover:bg-primary/90 dark:bg-white/10 dark:hover:bg-white/20"}
                 >
                   {t("header.register")}
                 </Link>
               </div>
             </div>
-            
+
             <div className="flex justity-center mr-2">
               <Mood sticky={sticky} />
               <MenuButton
@@ -114,7 +115,7 @@ const Header = () => {
                 sticky={sticky}
               />
             </div>
-              <LanguageMenu />
+            <LanguageMenu />
           </div>
         </div>
       </header>

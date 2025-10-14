@@ -1,8 +1,8 @@
 "use client"
 
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 const NotFound = () => {

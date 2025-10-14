@@ -1,10 +1,10 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import commonEn from "@/locales/en/common.json";
-import commonRu from "@/locales/ru/common.json";
-import commonPl from "@/locales/pl/common.json";
 import commonDe from "@/locales/de/common.json";
+import commonEn from "@/locales/en/common.json";
+import commonPl from "@/locales/pl/common.json";
+import commonRu from "@/locales/ru/common.json";
 
 i18n
   .use(initReactI18next)

@@ -1,6 +1,7 @@
 "use client"
 
 import { useTranslation } from "react-i18next";
+
 import SectionTitle from "../Common/SectionTitle";
 import SingleFaq from "./SingleFaq";
 

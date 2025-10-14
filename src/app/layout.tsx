@@ -3,12 +3,14 @@
 import "@/i18n";
 import "../styles/index.css";
 import "../styles/prism-vsc-dark-plus.css";
-import { useEffect, useState } from "react";
+
 import { ThemeProvider } from "next-themes";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
+import { useEffect, useState } from "react";
+
 import PreLoader from "@/components/Common/PreLoader";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
