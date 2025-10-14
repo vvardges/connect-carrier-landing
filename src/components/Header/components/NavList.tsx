@@ -80,7 +80,7 @@ export default function NavLink({ navbarOpen, sticky, setNavbarOpen, onToggleHan
                     onClick={onToggleHandler}
                     scroll={false}
                     href={menuItem.path}
-                    className={"ud-menu-scroll whitespace-nowrap flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6"}
+                    className={"ud-menu-scroll whitespace-nowrap group-hover:scale-110 flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6"}
                   >
                     {t(menuItem.title)}
                   </Link>
@@ -90,12 +90,12 @@ export default function NavLink({ navbarOpen, sticky, setNavbarOpen, onToggleHan
                     scroll={true}
                     href={menuItem.path}
                     className={`ud-menu-scroll flex py-2 text-base transition-all duration-200 whitespace-nowrap
-                            lg:inline-flex lg:px-0 lg:py-6 group-hover:scale-110
-                            ${isMobile
+                      lg:inline-flex lg:px-0 lg:py-6 group-hover:scale-110
+                      ${isMobile
                     ? (theme !== "dark" ? "text-dark" : "text-white")
                     : (sticky && theme !== "dark" ? "text-dark" : "text-white")
                   }
-                        `}
+                    `}
                   >
                     {t(menuItem.title)}
                   </Link>

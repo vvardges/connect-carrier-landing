@@ -14,7 +14,6 @@
     "@eslint/js": "^9.37.0",
     "commonjs": "^0.0.1",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-react-hooks": "^7.0.0",
     "eslint-plugin-react-refresh": "^0.4.23",
     "eslint-plugin-simple-import-sort": "^12.1.1",
@@ -32,6 +31,7 @@
     "typescript-eslint": "^8.46.1"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^15.5.4",
     "@types/node": "^20.11.27",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.2",
@@ -39,6 +39,7 @@
     "eslint": "^8.57.1",
     "eslint-config-next": "15.1.6",
     "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-next": "^0.0.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
