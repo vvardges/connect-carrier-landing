@@ -2,6 +2,7 @@
   "name": "play-nextjs",
   "version": "2.2.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -40,7 +41,7 @@
     "eslint-config-next": "15.1.6",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-next": "^0.0.0",
-    "postcss": "^8",
+    "postcss": "^8.5.6",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
