@@ -3,5 +3,4 @@ out
 node_modules
 .idea
 
-.env.local
-.env.production
+.env
