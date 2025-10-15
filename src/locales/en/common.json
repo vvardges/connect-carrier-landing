@@ -1,0 +1,119 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "media": "Media",
+    "contact": "Contact",
+    "howToRegister": "How To Register",
+    "login": "Login",
+    "register": "Register"
+  },
+  "hero": {
+    "title": "ConnectCarrier is an innovative platform that brings carriers and shippers together in one place",
+    "description": "It allows you to collaborate directly with some of the world's largest companies without worrying about timely payments or reliability of partnerships. With our solution, you can carry out transport services for global corporations while gaining access to a transparent system of orders at the most competitive rates. What's more, ConnectCarrier enables real-time route booking, giving you full control over scheduling and fleet efficiency. It's a modern tool designed for carriers who want to grow their business with confidence and without unnecessary complications."
+  },
+  "about": {
+    "title": "Your Partner in Transport",
+    "paragraph1": "ConnectCarrier company provides services in the field of land, sea, and air transport.",
+    "paragraph2": "Thanks to many years of experience in the transport industry, supported by a team of experienced drivers and trained logistics staff, we have managed to expand our fleet to an impressive number of over 300 trucks, and this number is continuously growing.",
+    "paragraph3": "Our company attaches great importance to every aspect of customer service – from accurate pricing to effective order fulfillment. With us, you can be sure that your transport needs will be met with the utmost care and professionalism."
+  },
+  "contact": {
+    "title": "CONTACT US",
+    "sendMessage": "Send us a Message",
+    "fullName": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send",
+    "messageSentSuccess": "Message sent successfully!",
+    "messageSentError": "Send failed: ",
+    "headquarterUSA": "Headquarter in USA",
+    "branchGermany": "Branch in Germany",
+    "branchKrakow": "Branch in Kraków, Poland",
+    "branchKatowice": "Branch in Katowice, Poland"
+  },
+  "footer": {
+    "home": "Home",
+    "about": "About",
+    "media": "Media",
+    "contact": "Contact",
+    "howToRegister": "How To Register",
+    "copyright": "© 2025 HAYWAY GROUP LLC. All rights reserved."
+  },
+  "media": {
+    "images": "Images",
+    "videos": "Videos"
+  },
+  "faq": {
+    "title": "How to Register and Get Started",
+    "subtitle": "Follow these steps to create your account and start using our platform.",
+    "step1": {
+      "title": "Create Your Account",
+      "content": "Click the Register button. Fill in the required fields:",
+      "fields": {
+        "email": "Email",
+        "password": "Password",
+        "fullName": "Full Name",
+        "companyName": "Company Name",
+        "vatNumber": "VAT Number"
+      },
+      "action": "Then click Register."
+    },
+    "step2": {
+      "title": "Verify Your Email",
+      "content": "Check your inbox for an email titled \"Your verification code\" and enter the 8-digit OTP:",
+      "item1": "If you don't see the email, check your Spam folder",
+      "item2": "Or click Resend Code"
+    },
+    "step3": {
+      "title": "Complete Onboarding",
+      "content": "After verifying your email, you'll be redirected to the Onboarding page. Complete all sections:",
+      "items": {
+        "companyDetails": "Company Details",
+        "addressLine1": "Address Line 1 / Line 2 (optional)",
+        "location": "Country, Town/City, State, Post Code",
+        "phone": "Country Code (e.g., +44, +49) & Phone Number",
+        "domiciles": "Domiciles (countries where your company operates)",
+        "operatingLicense": "Operating License (upload PDF, JPG, PNG)",
+        "insuranceDocs": "Insurance Documents (upload PDF, JPG, PNG)",
+        "paymentInfo": "Payment Info (Account Holder, SWIFT/BIC, IBAN, Account Type)",
+        "equipmentInventory": "Equipment Inventory (tractors, vans, trailers, etc.)"
+      }
+    },
+    "step4": {
+      "title": "Submit for Review",
+      "content": "When all required sections are complete:",
+      "item1": "Click Finish",
+      "item2": "Your application status changes to Pending Review",
+      "item3": "Our administrators will check your details & documents"
+    },
+    "step5": {
+      "title": "Fix Issues (if needed)",
+      "content": "If something is missing or incorrect:",
+      "item1": "Highlighted fields show notes (e.g., \"Invalid IBAN\", \"Insurance expired\")",
+      "item2": "Update only the incorrect fields and re-submit",
+      "item3": "Repeat until everything is correct"
+    },
+    "step6": {
+      "title": "Get Approved & Start Using the Platform",
+      "content": "Once approved, you'll receive a confirmation email:",
+      "item1": "Log in with your email and password",
+      "item2": "Access the platform and start using all features"
+    }
+  },
+  "notFound": {
+    "title": "We Can't Seem to Find The Page You're Looking For",
+    "description": "Oops! The page you are looking for does not exist. It might have been moved or deleted.",
+    "button": "Go back home"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "head": {
+    "title": "Connect Carrier | HAYWAY"
+  },
+  "common": {
+    "loading": "Loading..."
+  }
+}

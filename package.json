@@ -2,30 +2,46 @@
   "name": "play-nextjs",
   "version": "2.2.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@eslint/js": "^9.37.0",
+    "commonjs": "^0.0.1",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-react-refresh": "^0.4.23",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.4.0",
+    "i18next": "^25.5.3",
     "next": "^15.4.7",
+    "next-i18next": "^15.4.2",
     "next-themes": "^0.4.6",
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "tailgrids": "^2.2.7"
+    "react-i18next": "^16.0.0",
+    "tailgrids": "^2.2.7",
+    "typescript-eslint": "^8.46.1"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^15.5.4",
     "@types/node": "^20.11.27",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.2",
     "autoprefixer": "^10.0.1",
-    "eslint": "^8",
+    "eslint": "^8.57.1",
     "eslint-config-next": "15.1.6",
-    "postcss": "^8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-next": "^0.0.0",
+    "postcss": "^8.5.6",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

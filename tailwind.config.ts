@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const colors = require("tailwindcss/colors");
 
 const config: Config = {
@@ -16,6 +17,7 @@ const config: Config = {
       },
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailgrids/plugin")],
 };
 export default config;

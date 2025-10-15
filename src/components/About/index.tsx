@@ -1,18 +1,24 @@
 "use client";
-import React, { useState, useEffect } from "react";
+
 import Image from "next/image";
-import {useLandingFiles} from "@/hooks/useLandingFiles";
+import React, { useEffect,useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import { useLandingFiles } from "@/hooks/useLandingFiles";
+
+const Sort = (Math.random() - 0.5)
 
 const About = () => {
+  const { t } = useTranslation();
   const [index, setIndex] = useState(0);
-    const { files, loading, error } = useLandingFiles();
-    const slides = files
-        .filter(file => file.fileType === "image")
-        .map(file => file.fileUrl)
-        .sort(() => Math.random() - 0.5) // shuffle the array
-        .slice(0, 10); // take first 10
+  const { files, loading, error } = useLandingFiles();
 
-    // autoplay
+  const slides = files
+    .filter(file => file.fileType === "image")
+    .map(file => file.fileUrl)
+    .sort(() => Sort)
+    .slice(0, 10);
+
   useEffect(() => {
     if(slides.length === 0) return;
     const timer = setInterval(() => {
@@ -33,27 +39,18 @@ const About = () => {
             <div className="w-full px-4 lg:w-1/2">
               <div className="mb-12 max-w-[540px] lg:mb-0">
                 <h2 className="mb-5 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-[40px] sm:leading-[1.2] max-[700px]:text-3xl">
-                  Your Partner in Transport
+                  {t("about.title")}
                 </h2>
                 <p className="mb-10 text-base leading-relaxed text-gray-800 dark:text-dark-8">
-                  ConnectCarrier company provides services in the field of land,
-                  sea, and air transport.
+                  {t("about.paragraph1")}
                   <br /> <br />
-                  Thanks to many years of experience in the transport industry,
-                  supported by a team of experienced drivers and trained
-                  logistics staff, we have managed to expand our fleet to an
-                  impressive number of over 300 trucks, and this number is
-                  continuously growing.
+                  {t("about.paragraph2")}
                   <br /> <br />
-                  Our company attaches great importance to every aspect of
-                  customer service – from accurate pricing to effective order
-                  fulfillment. With us, you can be sure that your transport
-                  needs will be met with the utmost care and professionalism.
+                  {t("about.paragraph3")}
                 </p>
               </div>
             </div>
 
-            {/* Image slider */}
             {!loading && !error && <div className="w-full px-4 lg:w-1/2">
               <div className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-xl">
                 {slides.map((slide, i) => (
@@ -69,7 +66,6 @@ const About = () => {
                   />
                 ))}
 
-                {/* Dots navigation */}
                 <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
                   {slides.map((_, i) => (
                     <button
