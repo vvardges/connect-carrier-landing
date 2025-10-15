@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useTranslation } from "react-i18next";
+
 import BackgroundVideo from "@/components/BackgroundVideo";
 
 const Hero = () => {
