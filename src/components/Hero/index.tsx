@@ -1,17 +1,12 @@
 "use client"
 
-import BackgroundVideo from "@/components/BackgroundVideo";
-import React from "react";
-import { useTheme } from "next-themes";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
 import BackgroundVideo from "@/components/BackgroundVideo";
 
 const Hero = () => {
-  const { theme } = useTheme();
   const { t } = useTranslation()
-  const point = theme == "dark" ? "white" : "grey";
   return (
     <>
       <section
@@ -32,7 +27,8 @@ const Hero = () => {
               className="wow fadeInUp relative z-10 mx-auto max-w-[845px]"
               data-wow-delay=".25s"
             >
-
+            </div>
+          </div>
         </div>
       </div>
     </>
