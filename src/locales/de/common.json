@@ -1,0 +1,120 @@
+{
+  "header": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "media": "Medien",
+    "contact": "Kontakt",
+    "howToRegister": "Registrierung",
+    "login": "Login",
+    "register": "Register"
+  },
+  "hero": {
+    "title": "ConnectCarrier ist eine innovative Plattform, die Transportunternehmen und Verlader an einem Ort zusammenbringt",
+    "description": "Sie können direkt mit einigen der größten Unternehmen der Welt zusammenarbeiten, ohne sich um pünktliche Zahlungen oder die Zuverlässigkeit von Partnerschaften sorgen zu müssen. Mit unserer Lösung können Sie Transportdienstleistungen für globale Konzerne durchführen und gleichzeitig Zugang zu einem transparenten Auftragssystem zu den wettbewerbsfähigsten Preisen erhalten. Darüber hinaus ermöglicht ConnectCarrier die Routenbuchung in Echtzeit und gibt Ihnen die volle Kontrolle über Planung und Flotteneffizienz. Es ist ein modernes Tool für Transportunternehmen, die ihr Geschäft mit Vertrauen und ohne unnötige Komplikationen ausbauen möchten."
+  },
+  "about": {
+    "title": "Ihr Partner im Transport",
+    "paragraph1": "ConnectCarrier bietet Dienstleistungen im Bereich Land-, See- und Lufttransport.",
+    "paragraph2": "Dank langjähriger Erfahrung in der Transportbranche, unterstützt von einem Team erfahrener Fahrer und geschultem Logistikpersonal, haben wir unseren Fuhrpark auf eine beeindruckende Zahl von über 300 LKWs erweitert, und diese Zahl wächst kontinuierlich.",
+    "paragraph3": "Unser Unternehmen legt großen Wert auf jeden Aspekt des Kundenservice – von der genauen Preisgestaltung bis zur effektiven Auftragsabwicklung. Bei uns können Sie sicher sein, dass Ihre Transportbedürfnisse mit größter Sorgfalt und Professionalität erfüllt werden."
+  },
+  "contact": {
+    "title": "KONTAKTIEREN SIE UNS",
+    "sendMessage": "Senden Sie uns eine Nachricht",
+    "fullName": "Vollständiger Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "message": "Nachricht",
+    "send": "Senden",
+    "messageSentSuccess": "Nachricht erfolgreich gesendet!",
+    "messageSentError": "Senden fehlgeschlagen: ",
+    "headquarterUSA": "Hauptsitz in den USA",
+    "branchGermany": "Niederlassung in Deutschland",
+    "branchKrakow": "Niederlassung in Krakau, Polen",
+    "branchKatowice": "Niederlassung in Kattowitz, Polen"
+  },
+  "footer": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "media": "Medien",
+    "contact": "Kontakt",
+    "howToRegister": "Registrierungsanleitung",
+    "copyright": "© 2025 HAYWAY GROUP LLC. Alle Rechte vorbehalten."
+  },
+  "media": {
+    "images": "Bilder",
+    "videos": "Videos"
+  },
+  "faq": {
+    "title": "So registrieren Sie sich und legen los",
+    "subtitle": "Befolgen Sie diese Schritte, um Ihr Konto zu erstellen und unsere Plattform zu nutzen.",
+    "step1": {
+      "title": "Erstellen Sie Ihr Konto",
+      "content": "Klicken Sie auf die Schaltfläche Registrieren. Füllen Sie die erforderlichen Felder aus:",
+      "fields": {
+        "email": "E-Mail",
+        "password": "Passwort",
+        "fullName": "Vollständiger Name",
+        "companyName": "Firmenname",
+        "vatNumber": "USt-IdNr."
+      },
+      "action": "Klicken Sie dann auf Registrieren."
+    },
+    "step2": {
+      "title": "Bestätigen Sie Ihre E-Mail",
+      "content": "Überprüfen Sie Ihren Posteingang auf eine E-Mail mit dem Titel \"Ihr Bestätigungscode\" und geben Sie den 8-stelligen OTP ein:",
+      "item1": "Wenn Sie die E-Mail nicht sehen, überprüfen Sie Ihren Spam-Ordner",
+      "item2": "Oder klicken Sie auf Code erneut senden"
+    },
+    "step3": {
+      "title": "Onboarding abschließen",
+      "content": "Nach der E-Mail-Verifizierung werden Sie zur Onboarding-Seite weitergeleitet. Füllen Sie alle Abschnitte aus:",
+      "items": {
+        "companyDetails": "Firmendetails",
+        "addressLine1": "Adresszeile 1 / Zeile 2 (optional)",
+        "location": "Land, Stadt, Bundesland, Postleitzahl",
+        "phone": "Landesvorwahl (z. B. +44, +49) & Telefonnummer",
+        "domiciles": "Domizile (Länder, in denen Ihr Unternehmen tätig ist)",
+        "operatingLicense": "Betriebslizenz (PDF, JPG, PNG hochladen)",
+        "insuranceDocs": "Versicherungsdokumente (PDF, JPG, PNG hochladen)",
+        "paymentInfo": "Zahlungsinformationen (Kontoinhaber, SWIFT/BIC, IBAN, Kontotyp)",
+        "equipmentInventory": "Fahrzeuginventar (Zugmaschinen, Transporter, Anhänger usw.)"
+      }
+    },
+    "step4": {
+      "title": "Zur Überprüfung einreichen",
+      "content": "Wenn alle erforderlichen Abschnitte ausgefüllt sind:",
+      "item1": "Klicken Sie auf Fertig",
+      "item2": "Ihr Antragsstatus ändert sich zu Überprüfung ausstehend",
+      "item3": "Unsere Administratoren werden Ihre Angaben und Dokumente überprüfen"
+    },
+    "step5": {
+      "title": "Probleme beheben (falls erforderlich)",
+      "content": "Wenn etwas fehlt oder falsch ist:",
+      "item1": "Hervorgehobene Felder zeigen Hinweise (z. B. \"Ungültige IBAN\", \"Versicherung abgelaufen\")",
+      "item2": "Aktualisieren Sie nur die fehlerhaften Felder und reichen Sie erneut ein",
+      "item3": "Wiederholen Sie dies, bis alles korrekt ist"
+    },
+    "step6": {
+      "title": "Genehmigung erhalten und Plattform nutzen",
+      "content": "Nach der Genehmigung erhalten Sie eine Bestätigungs-E-Mail:",
+      "item1": "Melden Sie sich mit Ihrer E-Mail und Ihrem Passwort an",
+      "item2": "Greifen Sie auf die Plattform zu und nutzen Sie alle Funktionen"
+    }
+  },
+  "notFound": {
+    "imageAlt": "Seite nicht gefunden Illustration",
+    "title": "Wir können die Seite, die Sie suchen, nicht finden",
+    "description": "Ups! Die Seite, die Sie suchen, existiert nicht. Sie wurde möglicherweise verschoben oder gelöscht.",
+    "button": "Zur Startseite zurückkehren"
+  },
+  "breadcrumb": {
+    "home": "Startseite"
+  },
+  "head": {
+    "title": "Connect Carrier | HAYWAY"
+  },
+  "common": {
+    "loading": "Laden..."
+  }
+}

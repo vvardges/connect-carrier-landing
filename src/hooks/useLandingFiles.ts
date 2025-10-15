@@ -27,7 +27,7 @@ export function useLandingFiles() {
       return;
     }
 
-    const fetchData = async () => {
+    const fetchData = async() => {
       try {
         setLoading(true);
         inflight =
