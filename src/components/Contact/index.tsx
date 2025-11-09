@@ -86,7 +86,7 @@ const Contact = () => {
                   <img src="/images/flags/de.png" alt="Germany" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
                   <h3 className="text-lg lg:text-xl font-semibold">{t("contact.branchGermany")}</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">
-                    Ruhrallee 9, Dortmund, 44139
+                    Raiffeisenstraße 13 , 45661 Recklinghausen
                     <br /> Germany
                   </p>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
@@ -106,9 +106,7 @@ const Contact = () => {
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     +48 888 788 333
                   </p>
-                  <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
-                    info@sistrans.pl
-                  </p>
+                  <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap"></p>
                 </div>
                 <div className="space-y-2">
                   <img src="/images/flags/pl.png" alt="Poland" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
@@ -120,10 +118,52 @@ const Contact = () => {
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     +48 511 884 988
                   </p>
+                  <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap"></p>
+                </div>
+
+                <div className="space-y-2">
+                  <img src="/images/flags/sh.png" alt="Kingdom" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
+                  <h3 className="text-lg lg:text-xl font-semibold">Kingdom</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
-                    info@sistrans.pl
+                    HayWay United Kingdom
                   </p>
                 </div>
+                <div className="space-y-2">
+                  <img src="/images/flags/lu.png" alt="Luxemoburg" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
+                  <h3 className="text-lg lg:text-xl font-semibold">Luxemoburg</h3>
+                  <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                    HayWay Group Europe
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <img src="/images/flags/fr.png" alt="France" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
+                  <h3 className="text-lg lg:text-xl font-semibold">France</h3>
+                  <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                    HayWay France
+                  </p>
+                </div>
+                 <div className="space-y-2">
+                  <img src="/images/flags/fr.png" alt="Italy" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
+                  <h3 className="text-lg lg:text-xl font-semibold">Italy</h3>
+                  <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                    HayWay Italy
+                  </p>
+                </div>
+                 <div className="space-y-2">
+                  <img src="/images/flags/ie.png" alt="Ireland" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
+                  <h3 className="text-lg lg:text-xl font-semibold">Ireland</h3>
+                  <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                    HayWay Ireland
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <img src="/images/flags/ro.png" alt="Romania" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
+                  <h3 className="text-lg lg:text-xl font-semibold">Romania</h3>
+                  <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                    HayWay Romania
+                  </p>
+                </div>
+                
               </div>
             </div>
           </div>
