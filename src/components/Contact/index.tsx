@@ -142,14 +142,14 @@ const Contact = () => {
                     HayWay France
                   </p>
                 </div>
-                 <div className="space-y-2">
+                <div className="space-y-2">
                   <img src="/images/flags/fr.png" alt="Italy" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
                   <h3 className="text-lg lg:text-xl font-semibold">Italy</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     HayWay Italy
                   </p>
                 </div>
-                 <div className="space-y-2">
+                <div className="space-y-2">
                   <img src="/images/flags/ie.png" alt="Ireland" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
                   <h3 className="text-lg lg:text-xl font-semibold">Ireland</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
@@ -163,7 +163,7 @@ const Contact = () => {
                     HayWay Romania
                   </p>
                 </div>
-                
+
               </div>
             </div>
           </div>
