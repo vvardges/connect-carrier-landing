@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 
 export default function ScrollToHash() {
+  if (typeof window === "undefined") return;
   const pathname = window.location;
   useEffect(() => {
     const hash = window.location.hash;
