@@ -125,7 +125,7 @@ const Contact = () => {
                   <img src="/images/flags/sh.png" alt="Kingdom" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
                   <h3 className="text-lg lg:text-xl font-semibold">Kingdom</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
-                    HayWay United Kingdom
+                    HayWay Group United Kingdom
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -139,28 +139,28 @@ const Contact = () => {
                   <img src="/images/flags/fr.png" alt="France" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
                   <h3 className="text-lg lg:text-xl font-semibold">France</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
-                    HayWay France
+                    HayWay Group France
                   </p>
                 </div>
                 <div className="space-y-2">
                   <img src="/images/flags/fr.png" alt="Italy" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
                   <h3 className="text-lg lg:text-xl font-semibold">Italy</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
-                    HayWay Italy
+                    HayWay Group Italy
                   </p>
                 </div>
                 <div className="space-y-2">
                   <img src="/images/flags/ie.png" alt="Ireland" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
                   <h3 className="text-lg lg:text-xl font-semibold">Ireland</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
-                    HayWay Ireland
+                    HayWay Group Ireland
                   </p>
                 </div>
                 <div className="space-y-2">
                   <img src="/images/flags/ro.png" alt="Romania" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
                   <h3 className="text-lg lg:text-xl font-semibold">Romania</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
-                    HayWay Romania
+                    HayWay Group Romania
                   </p>
                 </div>
 

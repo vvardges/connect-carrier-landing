@@ -72,7 +72,7 @@ const About = () => {
                       key={i}
                       onClick={() => setIndex(i)}
                       className={`h-2 w-2 rounded-full ${
-                        index === i ? "bg-white" : "bg-white/50"
+                        index === i ? "bg-black/50" : "bg-black/30"
                       }`}
                     />
                   ))}
