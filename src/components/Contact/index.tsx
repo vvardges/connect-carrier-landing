@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import emailjs from "@emailjs/browser";
 import React, { useRef, useState } from "react";
@@ -28,34 +28,37 @@ const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
 
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
-  const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
-  const { t } = useTranslation()
+  const [toast, setToast] = useState<{
+    msg: string;
+    type: "success" | "error";
+  } | null>(null);
+  const { t } = useTranslation();
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!form.current) return;
 
     emailjs
-      .sendForm(
-        "service_xkgbohc",
-        "template_qt8a994",
-        form.current,
-        { publicKey: "R-rJXEPoHJaYNENBE" }
-      )
+      .sendForm("service_xkgbohc", "template_qt8a994", form.current, {
+        publicKey: "R-rJXEPoHJaYNENBE",
+      })
       .then(
         () => {
           setToast({ msg: "Message sent successfully!", type: "success" });
           form.current?.reset();
         },
         (error) => {
-          setToast({ msg: `Send failed: ${error.text || "Unknown error"}`, type: "error" });
-        }
+          setToast({
+            msg: `Send failed: ${error.text || "Unknown error"}`,
+            type: "error",
+          });
+        },
       );
   };
 
   return (
     <section id="contact" className="relative py-20">
       <div className="absolute left-0 top-0 -z-[1] h-full w-full dark:bg-dark"></div>
-      <div/>
+      <div />
       <div className="container px-4">
         <div className="-mx-4 flex flex-wrap items-center">
           <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
@@ -68,9 +71,18 @@ const Contact = () => {
 
               <div className="py-12 pl-0.5 grid grid-cols-1 md:grid-cols-2 gap-10 text-center md:text-left text-gray-600 dark:text-gray-300">
                 <div className="space-y-2">
-                  <img src="/images/flags/us.png" alt="USA" className="h-6 mx-auto md:mx-0"style={{ boxShadow: "0px 0px 5px 1px" }} />
-                  <h3 className="text-lg lg:text-xl font-semibold">{t("contact.headquarterUSA")}</h3>
-                  <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">HayWay Group LLC</p>
+                  <img
+                    src="/images/flags/us.png"
+                    alt="USA"
+                    className="h-6 mx-auto md:mx-0"
+                    style={{ boxShadow: "0px 0px 5px 1px", width: "42px" }}
+                  />
+                  <h3 className="text-lg lg:text-xl font-semibold">
+                    {t("contact.headquarterUSA")}
+                  </h3>
+                  <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">
+                    HayWay Group LLC
+                  </p>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">
                     1050 N 3rd St, Laramie,
                     <br /> WY 82072, USA
@@ -83,8 +95,15 @@ const Contact = () => {
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <img src="/images/flags/de.png" alt="Germany" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
-                  <h3 className="text-lg lg:text-xl font-semibold">{t("contact.branchGermany")}</h3>
+                  <img
+                    src="/images/flags/de.png"
+                    alt="Germany"
+                    className="h-6 mx-auto md:mx-0"
+                    style={{ boxShadow: "0px 0px 5px 1px", width: "42px" }}
+                  />
+                  <h3 className="text-lg lg:text-xl font-semibold">
+                    {t("contact.branchGermany")}
+                  </h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">
                     Raiffeisenstraße 13 , 45661 Recklinghausen
                     <br /> Germany
@@ -97,8 +116,15 @@ const Contact = () => {
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <img src="/images/flags/pl.png" alt="Poland" className="h-6 mx-auto md:mx-0 shadow-md" style={{ boxShadow: "0px 0px 5px 1px" }}/>
-                  <h3 className="text-lg lg:text-xl font-semibold">{t("contact.branchKrakow")}</h3>
+                  <img
+                    src="/images/flags/pl.png"
+                    alt="Poland"
+                    className="h-6 mx-auto md:mx-0 shadow-md"
+                    style={{ boxShadow: "0px 0px 5px 1px", width: "42px" }}
+                  />
+                  <h3 className="text-lg lg:text-xl font-semibold">
+                    {t("contact.branchKrakow")}
+                  </h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">
                     Nadbrzezie 15a, 31-983 Kraków
                     <br /> Poland
@@ -109,8 +135,15 @@ const Contact = () => {
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap"></p>
                 </div>
                 <div className="space-y-2">
-                  <img src="/images/flags/pl.png" alt="Poland" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
-                  <h3 className="text-lg lg:text-xl font-semibold">{t("contact.branchKatowice")}</h3>
+                  <img
+                    src="/images/flags/pl.png"
+                    alt="Poland"
+                    className="h-6 mx-auto md:mx-0"
+                    style={{ boxShadow: "0px 0px 5px 1px", width: "42px" }}
+                  />
+                  <h3 className="text-lg lg:text-xl font-semibold">
+                    {t("contact.branchKatowice")}
+                  </h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400">
                     Bocheńskiego 67, 40-859 Katowice
                     <br /> Poland
@@ -122,48 +155,79 @@ const Contact = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <img src="/images/flags/sh.png" alt="Kingdom" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
+                  <img
+                    src="/images/flags/sh.png"
+                    alt="Kingdom"
+                    className="h-6 mx-auto md:mx-0"
+                    style={{ boxShadow: "0px 0px 5px 1px", width: "42px" }}
+                  />
                   <h3 className="text-lg lg:text-xl font-semibold">Kingdom</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     HayWay Group United Kingdom
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <img src="/images/flags/lu.png" alt="Luxemoburg" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
-                  <h3 className="text-lg lg:text-xl font-semibold">Luxemoburg</h3>
+                  <img
+                    src="/images/flags/lu.png"
+                    alt="Luxemoburg"
+                    className="h-6 mx-auto md:mx-0"
+                    style={{ boxShadow: "0px 0px 5px 1px", width: "42px" }}
+                  />
+                  <h3 className="text-lg lg:text-xl font-semibold">
+                    Luxemoburg
+                  </h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     HayWay Group Europe
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <img src="/images/flags/fr.png" alt="France" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
+                  <img
+                    src="/images/flags/fr.png"
+                    alt="France"
+                    className="h-6 mx-auto md:mx-0"
+                    style={{ boxShadow: "0px 0px 5px 1px", width: "42px" }}
+                  />
                   <h3 className="text-lg lg:text-xl font-semibold">France</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     HayWay Group France
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <img src="/images/flags/fr.png" alt="Italy" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
+                  <img
+                    src="/images/flags/it.png"
+                    alt="Italy"
+                    className="h-6 mx-auto md:mx-0"
+                    style={{ boxShadow: "0px 0px 5px 1px", width: "42px" }}
+                  />
                   <h3 className="text-lg lg:text-xl font-semibold">Italy</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     HayWay Group Italy
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <img src="/images/flags/ie.png" alt="Ireland" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
+                  <img
+                    src="/images/flags/ie.png"
+                    alt="Ireland"
+                    className="h-6 mx-auto md:mx-0"
+                    style={{ boxShadow: "0px 0px 5px 1px", width: "42px" }}
+                  />
                   <h3 className="text-lg lg:text-xl font-semibold">Ireland</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     HayWay Group Ireland
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <img src="/images/flags/ro.png" alt="Romania" className="h-6 mx-auto md:mx-0" style={{ boxShadow: "0px 0px 5px 1px" }}/>
+                  <img
+                    src="/images/flags/ro.png"
+                    alt="Romania"
+                    className="h-6 mx-auto md:mx-0"
+                    style={{ boxShadow: "0px 0px 5px 1px", width: "42px" }}
+                  />
                   <h3 className="text-lg lg:text-xl font-semibold">Romania</h3>
                   <p className="text-sm lg:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     HayWay Group Romania
                   </p>
                 </div>
-
               </div>
             </div>
           </div>

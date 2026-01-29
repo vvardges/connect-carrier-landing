@@ -8,14 +8,15 @@ export default function LanguageMenu() {
   const menuRef = useRef<HTMLDivElement | null>(null);
   const languageOptions = {
     en: { name: "En", icon: "/images/flags/us.png" },
-    ru: { name: "Ru", icon: "/images/flags/ru.png" },
+    // ru: { name: "Ru", icon: "/images/flags/ru.png" },
     pl: { name: "Pl", icon: "/images/flags/pl.png" },
     de: { name: "De", icon: "/images/flags/de.png" },
   };
   const lang = i18n.language?.split("-")[0] || "en";
   const { theme } = useTheme();
   const toggleLangMenu = () => setIsOpen(!isOpen);
-  const selectedLanguage = languageOptions[lang as keyof typeof languageOptions] || languageOptions.en;
+  const selectedLanguage =
+    languageOptions[lang as keyof typeof languageOptions] || languageOptions.en;
 
   const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
@@ -40,7 +41,7 @@ export default function LanguageMenu() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
-  return(
+  return (
     <div className="relative inline-block mr-2" ref={menuRef}>
       <div
         onClick={toggleLangMenu}
@@ -79,5 +80,5 @@ export default function LanguageMenu() {
         </div>
       )}
     </div>
-  )
+  );
 }
