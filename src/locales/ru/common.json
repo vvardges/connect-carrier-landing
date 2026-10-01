@@ -115,5 +115,30 @@
   },
   "common": {
     "loading": "Загрузка..."
+  },
+  "liveChat": {
+    "title": "Онлайн-чат",
+    "chat": "Чат",
+    "close": "Закрыть",
+    "placeholder": "Напишите сообщение",
+    "send": "Отправить",
+    "noMessages": "Пока нет сообщений",
+    "waiting": "Ожидание сервера чата",
+    "connecting": "Подключение",
+    "connected": "Подключено",
+    "reconnecting": "Переподключение",
+    "disconnected": "Отключено",
+    "error": "Ошибка соединения",
+    "subject": "Тема",
+    "email": "Email",
+    "emailRequired": "Введите email, чтобы начать разговор",
+    "emailInvalid": "Введите корректный email",
+    "continue": "Продолжить",
+    "retry": "Повторить",
+    "messageTooLong": "Сообщение слишком длинное",
+    "subjectTooLong": "Тема слишком длинная",
+    "bodyOrFile": "Напишите сообщение или прикрепите файл",
+    "expired": "Этот чат истёк",
+    "today": "Сегодня"
   }
 }

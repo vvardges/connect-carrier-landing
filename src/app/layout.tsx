@@ -6,6 +6,8 @@ import "../styles/prism-vsc-dark-plus.css";
 
 import { ThemeProvider } from "next-themes";
 
+import GuestChatProvider from "@/chat/GuestChatProvider";
+import GuestLiveChat from "@/chat/GuestLiveChat";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -17,10 +19,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body>
         <ThemeProvider attribute="class" enableSystem={false} defaultTheme="light">
-          <Header />
-          {children}
-          <Footer />
-          <ScrollToTop />
+          <GuestChatProvider>
+            <Header />
+            {children}
+            <Footer />
+            <ScrollToTop />
+            <GuestLiveChat />
+          </GuestChatProvider>
         </ThemeProvider>
       </body>
     </html>

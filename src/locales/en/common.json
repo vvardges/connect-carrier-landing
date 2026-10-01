@@ -115,5 +115,30 @@
   },
   "common": {
     "loading": "Loading..."
+  },
+  "liveChat": {
+    "title": "Live Chat",
+    "chat": "Chat",
+    "close": "Close",
+    "placeholder": "Write a message",
+    "send": "Send",
+    "noMessages": "No messages yet",
+    "waiting": "Waiting for the chat server",
+    "connecting": "Connecting",
+    "connected": "Connected",
+    "reconnecting": "Reconnecting",
+    "disconnected": "Disconnected",
+    "error": "Connection error",
+    "subject": "Subject",
+    "email": "Email",
+    "emailRequired": "Enter your email to start a conversation",
+    "emailInvalid": "Enter a valid email",
+    "continue": "Continue",
+    "retry": "Retry",
+    "messageTooLong": "Message is too long",
+    "subjectTooLong": "Subject is too long",
+    "bodyOrFile": "Write a message or attach a file",
+    "expired": "This chat has expired",
+    "today": "Today"
   }
 }

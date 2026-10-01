@@ -115,5 +115,30 @@
   },
   "common": {
     "loading": "Ładowanie..."
+  },
+  "liveChat": {
+    "title": "Czat na żywo",
+    "chat": "Czat",
+    "close": "Zamknij",
+    "placeholder": "Napisz wiadomość",
+    "send": "Wyślij",
+    "noMessages": "Brak wiadomości",
+    "waiting": "Oczekiwanie na serwer czatu",
+    "connecting": "Łączenie",
+    "connected": "Połączono",
+    "reconnecting": "Ponowne łączenie",
+    "disconnected": "Rozłączono",
+    "error": "Błąd połączenia",
+    "subject": "Temat",
+    "email": "Email",
+    "emailRequired": "Podaj email, aby rozpocząć rozmowę",
+    "emailInvalid": "Podaj poprawny email",
+    "continue": "Dalej",
+    "retry": "Ponów",
+    "messageTooLong": "Wiadomość jest za długa",
+    "subjectTooLong": "Temat jest za długi",
+    "bodyOrFile": "Napisz wiadomość albo dodaj plik",
+    "expired": "Ten czat wygasł",
+    "today": "Dzisiaj"
   }
 }

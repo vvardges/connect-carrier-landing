@@ -116,5 +116,30 @@
   },
   "common": {
     "loading": "Laden..."
+  },
+  "liveChat": {
+    "title": "Live-Chat",
+    "chat": "Chat",
+    "close": "Schließen",
+    "placeholder": "Nachricht schreiben",
+    "send": "Senden",
+    "noMessages": "Noch keine Nachrichten",
+    "waiting": "Warten auf den Chat-Server",
+    "connecting": "Verbinden",
+    "connected": "Verbunden",
+    "reconnecting": "Neu verbinden",
+    "disconnected": "Getrennt",
+    "error": "Verbindungsfehler",
+    "subject": "Betreff",
+    "email": "E-Mail",
+    "emailRequired": "Geben Sie Ihre E-Mail ein, um das Gespräch zu starten",
+    "emailInvalid": "Geben Sie eine gültige E-Mail ein",
+    "continue": "Weiter",
+    "retry": "Erneut senden",
+    "messageTooLong": "Nachricht ist zu lang",
+    "subjectTooLong": "Betreff ist zu lang",
+    "bodyOrFile": "Nachricht schreiben oder Datei anhängen",
+    "expired": "Dieser Chat ist abgelaufen",
+    "today": "Heute"
   }
 }
