@@ -7,7 +7,9 @@ export type FileItem = {
   fileUrl: string;
 };
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiOrigin = String(
+  process.env.NEXT_PUBLIC_API_BASE_URL ?? process.env.NEXT_PUBLIC_API_URL ?? "",
+).replace(/\/$/, "");
 
 // Simple module-level cache to prevent refetching across mounts
 let cached: FileItem[] | null = null;
@@ -32,7 +34,7 @@ export function useLandingFiles() {
         setLoading(true);
         inflight =
           inflight ??
-          fetch(`${apiUrl}/File/Get/Landing`)
+          fetch(`${apiOrigin}/File/Get/Landing`)
             .then((r) => r.json())
             .catch((e) => {
               throw e;

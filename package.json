@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "dotenv -e .env.test -- next dev",
+    "build": "dotenv -e .env.test -- next build",
+    "build:prod": "dotenv -e .env -- next build",
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -38,6 +39,7 @@
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.2",
     "autoprefixer": "^10.0.1",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.1.6",
     "eslint-import-resolver-typescript": "^4.4.4",

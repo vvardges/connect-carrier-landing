@@ -2,7 +2,9 @@ import * as signalR from "@microsoft/signalr";
 
 import type { ChatConnectionStatus, ConversationSeen, SupportMessage } from "./types";
 
-const apiOrigin = String(process.env.NEXT_PUBLIC_API_BASE_URL ?? "").replace(/\/$/, "");
+const apiOrigin = String(
+  process.env.NEXT_PUBLIC_API_BASE_URL ?? process.env.NEXT_PUBLIC_API_URL ?? "",
+).replace(/\/$/, "");
 
 type Handlers = {
   onMessageCreated: (message: SupportMessage) => void;

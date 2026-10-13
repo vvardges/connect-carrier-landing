@@ -1,6 +1,8 @@
 import type { GuestOpened } from "./types";
 
-const apiOrigin = String(process.env.NEXT_PUBLIC_API_BASE_URL ?? "").replace(/\/$/, "");
+const apiOrigin = String(
+  process.env.NEXT_PUBLIC_API_BASE_URL ?? process.env.NEXT_PUBLIC_API_URL ?? "",
+).replace(/\/$/, "");
 
 export class SupportChatError extends Error {
   status: number;
