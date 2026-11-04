@@ -521,7 +521,7 @@
   grid-template-columns: 1fr 2fr 1fr 1fr 1fr max-content;
   column-gap: 16px;
   row-gap: 8px;
-  max-height: 375px;
+  max-height: 600px;
   min-width: 820px;
   padding-right: 10px;
   overflow-y: auto;
