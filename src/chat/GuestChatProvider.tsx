@@ -29,14 +29,27 @@ type GuestChatState = {
   messages: SupportMessage[];
 };
 
+export type GuestChatOpenRequest = {
+  token: number;
+  tourId: string | null;
+  loadId: string | null;
+};
+
 type GuestChatContextValue = GuestChatState & {
+  openRequest: GuestChatOpenRequest | null;
+  openChat: (input?: { tourId?: string | null; loadId?: string | null }) => void;
   beginGuest: (input: {
     email: string;
     subject?: string;
     body: string;
     clientMessageId: string;
+    tourId?: string;
   }) => Promise<void>;
-  continueGuest: (input: { body: string; clientMessageId: string }) => Promise<void>;
+  continueGuest: (input: {
+    body: string;
+    clientMessageId: string;
+    tourId?: string;
+  }) => Promise<void>;
   reset: () => void;
 };
 
@@ -64,6 +77,8 @@ export default function GuestChatProvider({ children }: { children: ReactNode })
   const [error, setError] = useState<string | undefined>();
   const [guest, setGuest] = useState<GuestSession | null>(null);
   const [messages, setMessages] = useState<SupportMessage[]>([]);
+  const [openRequest, setOpenRequest] = useState<GuestChatOpenRequest | null>(null);
+  const openToken = useRef(0);
   const guestRef = useRef<GuestSession | null>(null);
   const expiryTimer = useRef<number | undefined>(undefined);
 
@@ -166,12 +181,22 @@ export default function GuestChatProvider({ children }: { children: ReactNode })
     };
   }, [clearExpiry, rememberMessage]);
 
+  const openChat = useCallback((input?: { tourId?: string | null; loadId?: string | null }) => {
+    openToken.current += 1;
+    setOpenRequest({
+      token: openToken.current,
+      tourId: input?.tourId?.trim() || null,
+      loadId: input?.loadId?.trim() || null,
+    });
+  }, []);
+
   const beginGuest = useCallback(
     async (input: {
       email: string;
       subject?: string;
       body: string;
       clientMessageId: string;
+      tourId?: string;
     }) => {
       const opened = await openGuestConversation(input);
       storeGuest(opened);
@@ -182,7 +207,7 @@ export default function GuestChatProvider({ children }: { children: ReactNode })
   );
 
   const continueGuest = useCallback(
-    async (input: { body: string; clientMessageId: string }) => {
+    async (input: { body: string; clientMessageId: string; tourId?: string }) => {
       const current = guestRef.current;
       if (!current || current.expiresAt <= Date.now()) {
         reset();
@@ -193,6 +218,7 @@ export default function GuestChatProvider({ children }: { children: ReactNode })
         hubToken: current.hubToken,
         body: input.body,
         clientMessageId: input.clientMessageId,
+        tourId: input.tourId,
       });
       storeGuest(opened);
       rememberMessage(guestMessage(opened, input.clientMessageId));
@@ -207,11 +233,13 @@ export default function GuestChatProvider({ children }: { children: ReactNode })
       error,
       guest,
       messages,
+      openRequest,
+      openChat,
       beginGuest,
       continueGuest,
       reset,
     }),
-    [beginGuest, continueGuest, error, guest, messages, reset, status],
+    [beginGuest, continueGuest, error, guest, messages, openChat, openRequest, reset, status],
   );
 
   return <GuestChatContext.Provider value={value}>{children}</GuestChatContext.Provider>;

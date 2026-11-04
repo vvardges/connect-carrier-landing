@@ -40,6 +40,7 @@ export const openGuestConversation = (input: {
   subject?: string;
   body: string;
   clientMessageId: string;
+  tourId?: string;
 }) =>
   request<GuestOpened>("/SupportChat/guest/conversations", {
     method: "POST",
@@ -48,6 +49,7 @@ export const openGuestConversation = (input: {
       subject: input.subject?.trim() || undefined,
       body: input.body,
       clientMessageId: input.clientMessageId,
+      tourId: input.tourId?.trim() || undefined,
     }),
   });
 
@@ -56,6 +58,7 @@ export const sendGuestMessage = (input: {
   hubToken: string;
   body: string;
   clientMessageId: string;
+  tourId?: string;
 }) =>
   request<GuestOpened>(
     `/SupportChat/guest/conversations/${input.conversationId}/messages`,
@@ -64,6 +67,7 @@ export const sendGuestMessage = (input: {
       body: JSON.stringify({
         body: input.body,
         clientMessageId: input.clientMessageId,
+        tourId: input.tourId?.trim() || undefined,
       }),
     },
     input.hubToken,

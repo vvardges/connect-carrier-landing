@@ -20,7 +20,7 @@ const BackgroundVideo = () => {
       </video>
       <div className="w-full px-4">
         <div
-          className="hero-content wow fadeInUp mx-auto max-w-[760px] flex items-end justify-center text-center h-[79vh]"
+          className="hero-content wow fadeInUp mx-auto max-w-[760px] flex items-end justify-center text-center h-[79vh] pb-16 lg:pb-15"
           data-wow-delay=".2s"
         >
           <h1 className="text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug lg:text-4xl lg:leading-[1.2] max-[700px]:text-3xl">

@@ -1,21 +1,25 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import ChatConversation from "./ChatConversation";
 import { messageOf, useGuestChat } from "./GuestChatProvider";
 import { createClientMessageId } from "./id";
 
-const fileSignature = (email: string, subject: string, body: string) =>
-  `${email}::${subject}::${body}`;
+const fileSignature = (email: string, subject: string, body: string, tourId: string) =>
+  `${email}::${subject}::${body}::${tourId}`;
 
 const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
 export default function GuestLiveChat() {
   const { t } = useTranslation();
-  const { guest, status, error: hubError, messages, beginGuest, continueGuest } = useGuestChat();
+  const { guest, status, error: hubError, messages, openRequest, beginGuest, continueGuest } =
+    useGuestChat();
   const [open, setOpen] = useState(false);
+  const [tourId, setTourId] = useState<string | null>(null);
+  const [loadId, setLoadId] = useState<string | null>(null);
+  const seenOpenToken = useRef(0);
   const [email, setEmail] = useState("");
   const [emailReady, setEmailReady] = useState(false);
   const [subject, setSubject] = useState("");
@@ -24,6 +28,14 @@ export default function GuestLiveChat() {
   const [failedSend, setFailedSend] = useState(false);
   const [error, setError] = useState("");
   const pending = useRef<{ id: string; signature: string } | null>(null);
+
+  useEffect(() => {
+    if (!openRequest || openRequest.token === seenOpenToken.current) return;
+    seenOpenToken.current = openRequest.token;
+    setTourId(openRequest.tourId);
+    setLoadId(openRequest.loadId);
+    setOpen(true);
+  }, [openRequest]);
 
   const confirmEmail = () => {
     const guestEmail = email.trim();
@@ -59,7 +71,7 @@ export default function GuestLiveChat() {
       setError(t("liveChat.messageTooLong"));
       return;
     }
-    const signature = fileSignature(guestEmail, subject, body);
+    const signature = fileSignature(guestEmail, subject, body, tourId ?? "");
     const clientMessageId =
       pending.current?.signature === signature
         ? pending.current.id
@@ -73,9 +85,11 @@ export default function GuestLiveChat() {
         subject,
         body: body.trim(),
         clientMessageId,
+        tourId: tourId ?? undefined,
       });
       pending.current = null;
       setFailedSend(false);
+      setTourId(null);
       setSubject("");
       setBody("");
     } catch (startError) {
@@ -95,17 +109,20 @@ export default function GuestLiveChat() {
         >
           {guest ? (
             <ChatConversation
-              title={guest.subject || "Guest"}
+              title={guest.subject || t("liveChat.title")}
+              loadId={loadId}
               status={status}
               error={hubError}
               messages={messages}
               onClose={() => setOpen(false)}
-              onSend={(input) =>
-                continueGuest({
+              onSend={async (input) => {
+                await continueGuest({
                   body: input.body.trim(),
                   clientMessageId: input.clientMessageId,
-                })
-              }
+                  tourId: tourId ?? undefined,
+                });
+                setTourId(null);
+              }}
             />
           ) : (
             <form
@@ -120,9 +137,14 @@ export default function GuestLiveChat() {
               }}
             >
               <div className="flex items-center justify-between border-b border-gray-100 pb-3 dark:border-white/10">
-                <p className="m-0 text-base font-semibold text-gray-900 dark:text-gray-100">
-                  {t("liveChat.title")}
-                </p>
+                <div>
+                  <p className="m-0 text-base font-semibold text-gray-900 dark:text-gray-100">
+                    {t("liveChat.title")}
+                  </p>
+                  {loadId ? (
+                    <p className="m-0 text-sm font-medium text-[#376fd0]">{loadId}</p>
+                  ) : null}
+                </div>
                 <button
                   type="button"
                   className="border-0 bg-transparent text-xl leading-none text-gray-500"
@@ -183,7 +205,15 @@ export default function GuestLiveChat() {
       <button
         type="button"
         className="fixed bottom-6 right-6 z-[1000] h-14 w-14 cursor-pointer rounded-full border-0 bg-primary text-sm font-medium text-white shadow-[0_8px_24px_rgba(21,21,21,0.16)] hover:bg-primary/90"
-        onClick={() => setOpen((current) => !current)}
+        onClick={() =>
+          setOpen((current) => {
+            if (!current) {
+              setTourId(null);
+              setLoadId(null);
+            }
+            return !current;
+          })
+        }
       >
         {t("liveChat.chat")}
       </button>

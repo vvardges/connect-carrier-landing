@@ -8,6 +8,7 @@ import type { ChatConnectionStatus, SupportMessage } from "./types";
 
 type ChatConversationProps = {
   title: string;
+  loadId?: string | null;
   status: ChatConnectionStatus;
   error?: string;
   messages: SupportMessage[];
@@ -56,6 +57,7 @@ const dayKey = (value: string) => {
 
 export default function ChatConversation({
   title,
+  loadId,
   status,
   error,
   messages,
@@ -120,6 +122,9 @@ export default function ChatConversation({
       <div className="flex items-start justify-between gap-2 border-b border-gray-100 px-4 py-3 dark:border-white/10">
         <div>
           <p className="m-0 text-base font-semibold text-gray-900 dark:text-gray-100">{title}</p>
+          {loadId ? (
+            <p className="m-0 text-sm font-medium text-[#376fd0]">{loadId}</p>
+          ) : null}
           <p className={`mt-0.5 mb-0 ${statusClass}`}>
             {localError || error || t(statusKey(status))}
           </p>

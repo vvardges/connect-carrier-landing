@@ -12,6 +12,18 @@
     "title": "ConnectCarrier is an innovative platform that brings carriers and shippers together in one place",
     "description": "It allows you to collaborate directly with some of the world's largest companies without worrying about timely payments or reliability of partnerships. With our solution, you can carry out transport services for global corporations while gaining access to a transparent system of orders at the most competitive rates. What's more, ConnectCarrier enables real-time route booking, giving you full control over scheduling and fleet efficiency. It's a modern tool designed for carriers who want to grow their business with confidence and without unnecessary complications."
   },
+  "availableLoads": {
+    "title": "Available loads",
+    "loadId": "Load ID",
+    "destinations": "Destinations",
+    "distanceTime": "Distance & time",
+    "actionType": "Action type",
+    "liveChat": "Live chat",
+    "payout": "Payout",
+    "loading": "Loading loads...",
+    "empty": "No available loads right now.",
+    "error": "Could not load available loads."
+  },
   "about": {
     "title": "Your Partner in Transport",
     "paragraph1": "ConnectCarrier company provides services in the field of land, sea, and air transport.",

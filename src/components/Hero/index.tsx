@@ -3,6 +3,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+import AvailableLoads from "@/components/AvailableLoads";
 import BackgroundVideo from "@/components/BackgroundVideo";
 
 const Hero = () => {
@@ -17,6 +18,7 @@ const Hero = () => {
           <BackgroundVideo />
         </div>
       </section>
+      <AvailableLoads />
       <div className="bg-gray-2 dark:bg-dark-3">
         <div className="flex flex-wrap items-center justify-center text-center py-[30px]">
           <p className="px-[20px] mx-auto max-w-[779px] text-base font-medium sm:text-lg sm:leading-[1.44] flex justify-center items-center text-gray-800 dark:text-dark-8  ">

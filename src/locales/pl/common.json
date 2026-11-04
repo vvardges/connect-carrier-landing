@@ -12,6 +12,18 @@
     "title": "ConnectCarrier to innowacyjna platforma, która łączy przewoźników i spedytorów w jednym miejscu",
     "description": "Pozwala to na bezpośrednią współpracę z jednymi z największych firm na świecie bez martwienia się o terminowe płatności czy niezawodność partnerstwa. Dzięki naszemu rozwiązaniu możesz świadczyć usługi transportowe dla globalnych korporacji, uzyskując jednocześnie dostęp do przejrzystego systemu zamówień po najbardziej konkurencyjnych cenach. Co więcej, ConnectCarrier umożliwia rezerwację tras w czasie rzeczywistym, dając pełną kontrolę nad harmonogramem i efektywnością floty. To nowoczesne narzędzie stworzone dla przewoźników, którzy chcą rozwijać swój biznes z pewnością siebie i bez niepotrzebnych komplikacji."
   },
+  "availableLoads": {
+    "title": "Dostępne ładunki",
+    "loadId": "Load ID",
+    "destinations": "Destynacje",
+    "distanceTime": "Dystans i czas",
+    "actionType": "Typ akcji",
+    "liveChat": "Live chat",
+    "payout": "Wypłata",
+    "loading": "Ładowanie ładunków...",
+    "empty": "Brak dostępnych ładunków.",
+    "error": "Nie udało się załadować dostępnych ładunków."
+  },
   "about": {
     "title": "Twój Partner w Transporcie",
     "paragraph1": "Firma ConnectCarrier świadczy usługi w zakresie transportu lądowego, morskiego i lotniczego.",
