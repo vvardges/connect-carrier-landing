@@ -2,7 +2,7 @@
 
 import "./available-loads.css";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { useGuestChat } from "@/chat/GuestChatProvider";
@@ -14,6 +14,43 @@ import {
   PersonIcon,
   StopPinIcon,
 } from "./icons";
+
+const TruncatedCity = ({ text }: { text: string }) => {
+  const cityRef = useRef<HTMLSpanElement>(null);
+  const [tooltip, setTooltip] = useState<{ x: number; y: number } | null>(null);
+
+  const showTooltip = () => {
+    const city = cityRef.current;
+    if (!city || city.scrollWidth <= city.clientWidth) {
+      setTooltip(null);
+      return;
+    }
+    const rect = city.getBoundingClientRect();
+    setTooltip({ x: rect.left, y: rect.bottom + 6 });
+  };
+
+  return (
+    <>
+      <span
+        ref={cityRef}
+        className="available-loads__stop-city"
+        onMouseEnter={showTooltip}
+        onMouseLeave={() => setTooltip(null)}
+      >
+        {text}
+      </span>
+      {tooltip ? (
+        <span
+          className="available-loads__tooltip"
+          style={{ left: tooltip.x, top: tooltip.y }}
+          role="tooltip"
+        >
+          {text}
+        </span>
+      ) : null}
+    </>
+  );
+};
 
 const AvailableLoads = () => {
   const { t } = useTranslation();
@@ -107,10 +144,10 @@ const AvailableLoads = () => {
                 {t("availableLoads.actionType")}
               </span>
               <span className="available-loads__head-cell">
-                {t("availableLoads.liveChat")}
+                {t("availableLoads.payout")}
               </span>
               <span className="available-loads__head-cell">
-                {t("availableLoads.payout")}
+                {t("availableLoads.liveChat")}
               </span>
             </div>
 
@@ -140,14 +177,14 @@ const AvailableLoads = () => {
                     <div className="available-loads__destinations">
                       <div className="available-loads__stop">
                         <StopPinIcon index={1} />
-                        <span className="available-loads__stop-city">{load.from}</span>
+                        <TruncatedCity text={load.from} />
                       </div>
                       <span className="available-loads__arrow">
                         <ArrowForwardIcon />
                       </span>
                       <div className="available-loads__stop">
                         <StopPinIcon index={2} />
-                        <span className="available-loads__stop-city">{load.to}</span>
+                        <TruncatedCity text={load.to} />
                       </div>
                     </div>
                   </div>
@@ -168,6 +205,10 @@ const AvailableLoads = () => {
                     </div>
                   </div>
 
+                  <div className="available-loads__cell">
+                    <span className="available-loads__payout">{load.payout}</span>
+                  </div>
+
                   <div className="available-loads__cell available-loads__cell--chat">
                     <button
                       type="button"
@@ -177,10 +218,6 @@ const AvailableLoads = () => {
                     >
                       <LiveChatIcon />
                     </button>
-                  </div>
-
-                  <div className="available-loads__cell">
-                    <span className="available-loads__payout">{load.payout}</span>
                   </div>
                 </div>
               ))}
