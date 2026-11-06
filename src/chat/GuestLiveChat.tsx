@@ -204,7 +204,7 @@ export default function GuestLiveChat() {
       )}
       <button
         type="button"
-        className="fixed bottom-6 right-6 z-[1000] flex h-14 w-14 cursor-pointer items-center justify-center overflow-hidden rounded-full border-0 bg-primary p-0 shadow-[0_8px_24px_rgba(21,21,21,0.16)] hover:bg-primary/90"
+        className="fixed bottom-6 right-6 z-[1000] flex h-[69px] w-[69px] cursor-pointer items-center justify-center overflow-hidden rounded-full border-0 bg-transparent p-0"
         aria-label={t("liveChat.chat")}
         onClick={() =>
           setOpen((current) => {
@@ -217,11 +217,11 @@ export default function GuestLiveChat() {
         }
       >
         <img
-          src="/images/liveChat.svg"
+          src="/images/liveChatFront.svg"
           alt=""
-          width={40}
-          height={40}
-          className="h-10 w-10 object-contain"
+          width={69}
+          height={69}
+          className="h-[69px] w-[69px]"
         />
       </button>
     </div>
